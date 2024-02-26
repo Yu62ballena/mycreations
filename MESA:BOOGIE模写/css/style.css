@@ -1,0 +1,916 @@
+@charset "UTF-8";
+
+*, *::before, *::after{
+	box-sizing: border-box;
+}
+
+body{
+    font-family:"RamaGothicEW01-SemiBold", "Proxima Nova", Helvetica, Arial, "Arial Unicode", "Lucida Sans Unicode", sans-serif;
+}
+
+.hidden{
+    display: none;
+}
+
+
+/* site-nav */
+.pc-header .site-nav{
+    background-color: #000;
+    height: 65px;
+    font-size: 14px;
+}
+.pc-header .site-nav-list{
+    text-align: center;
+}
+.pc-header .site-nav-item{
+    margin-right: 20px;
+    display: inline-block;
+    line-height: 65px;
+}
+.pc-header .site-nav-item-link{
+    color: #888888;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+.pc-header .site-nav-item-link:hover{
+    color: #fff;
+    transition: 0.3s;
+}
+
+/* global-nav */
+.pc-header .global-nav{
+    background-color: #292929;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    border-bottom: 3px solid #FF6700;
+}
+.pc-header .logo{
+    width: 137.8px;
+    height: auto;
+    line-height: 100px;
+    object-fit: cover;
+}
+.pc-header .nav-item{
+    display: inline-block;
+    line-height: 100px;
+}
+.pc-header .nav-link{
+    padding: 5px 10px;
+    color: #fff;
+    text-decoration: none;
+    margin-left: 30px;
+}
+.pc-header .nav-link:hover{
+    border-bottom: 3px solid #FF6700;
+}
+
+.sp-header{
+    display: none;
+}
+
+/* main */
+
+/* section01 amp */
+.amp-box{
+    position: relative;
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #fff;
+    color: #fff;
+}
+.amp-pics{
+    min-height: 700px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.amp-pic01{
+    background-image: url(../images/badlander-100-silver-w-blkLP-XL.jpg) ;
+}
+.amp-pic02{
+    background-image: url(../images/mk535-PR-tasmanian-blackwood-featured-XL.jpg);
+}
+.amp-pic03{
+    background-image: url(../images/Cleo-DynaPlex-GoldMine-family-XL.jpg);
+}
+
+.item-box .logo-hover{
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    right: 0;
+    width: 550px;
+    height: 180px;
+    background-color: #021F24;
+    margin: 100px auto 0;
+    text-align: center;
+    padding: 25px;
+    font-weight: 400;
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+.item-box:hover .logo-hover .amp{
+    color: #FF6700;
+}
+
+.amp{
+    font-size: 80px;
+}
+.amp::after{
+    display: block;
+    content: '';
+    border-bottom: 1px solid #FF6700;
+    width: 450px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+.amp-explanation{
+    font-size: 20px;
+}
+
+
+/* section02 find your voice */
+.section02, .section03, .section04, .section06{
+    background-color: #292929;
+    color: #fff;
+    
+}
+.title{
+    font-size: 110px;
+    text-align: center;
+    padding: 50px 0 40px;
+}
+
+.section02 .inner, .section03 .inner{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 20px;
+    width: 100%;
+    justify-content: center;
+}
+.item-panel{
+    height: 350px;
+    width: calc(50% - 30px);
+    margin-bottom: 30px;
+    position: relative;
+}
+.click-box{
+    height: 100%;
+    display: block;
+    cursor: pointer;
+}
+.click-box:hover .name-box .item-name{
+    color: #FF6700;
+}
+
+.voice-pics{
+    background-size: cover;
+}
+.voice-pic01{
+    background-image: url(../images/california-tweed-burst-les-paul-featured-XL.jpg);
+    margin-right: 50px;
+}
+.voice-pic02{
+    background-image: url(../images/fillmore50-combo-aqua-blue-flame-hero-featured-XL.jpg);
+}
+.voice-pic03{
+    background-image: url(../images/Subway-TT-800_hero-featured-XL.jpg);
+    margin-right: 50px;
+}
+.voice-pic04{
+    background-image: url(../images/mk525-brit-tan-w-ES-featured-XL.jpg);
+}
+
+.item-name{
+    display: table;
+    background-color: #111;
+    opacity: 1;
+    padding: 10px 25px;
+    font-size: 60px;
+}
+.series-name{
+    display: table;
+    font-size: 20px;
+    background-color: #021F24;
+    padding: 10px 25px;
+    opacity: 1;
+}
+
+.item-panel .name-box{
+    position: absolute;
+    bottom: 20px;
+    cursor: pointer;
+}
+
+/* section03 control of your tone */
+.control-pic01{
+    background-image: url(../images/CCIR-Hero-2.jpg);
+    margin-right: 50px;
+}
+.control-pic02{
+    background-image: url(../images/powerhouse-attenuator-main.jpg);
+}
+.control-pic03{
+    background-image: url(../images/midi-matrix-new-hero.jpg);
+    margin-right: 50px;
+}
+.control-pic04{
+    background-image: url(../images/headtrack-hero.jpg);
+}
+
+.section03 .title, .section04 .title{
+    padding-top: 80px;
+}
+
+
+/* section04 on the world's stage */
+.section04{
+    background-color: ;
+    padding-bottom: 50px;
+}
+.guitar-hero{
+    width: 100%;
+    height: 600px;
+    object-position: top;
+    object-fit: cover;
+}
+.stage-btn{
+    display: block;
+    margin: 60px auto 50px;
+    text-align: center;
+    font-size: 20px;
+    font-family: "Proxima Nova";
+}
+.stage-btn a{
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid #FF6700;
+    padding: 15px 30px;
+    background-color: #021F24;
+}
+.stage-btn a:hover{
+    background-color: #003943;
+    color: #FF6700;
+}
+
+
+/* section05 amplitudes */
+.section05{
+    background-color: #111;
+    padding-bottom: 30px;
+    color: #fff;
+}
+.section05 .inner{
+    display: flex;
+    justify-content: center;
+    padding: 0 20px;
+    width: 100%;
+}
+
+
+.amplitudes-box{
+    position: relative;
+    width: 50vw;
+    /* height: 350px; */
+    background-size: cover;
+}
+.amplitudes-pic01{
+    background-image: url(../images/rcs-interview-og.jpg);
+    margin-right: 50px;
+}
+.amplitudes-pic02{
+    background-image: url(../images/ted-aguilar-header.jpg);
+}
+.section05 .inner .amplitudes-box .series-name{
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 480px;
+
+}
+.section05 .inner .amplitudes-box .series-name a{
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 30px;
+}
+
+
+/* section06 compare gallery */
+.section06{
+    display: flex;
+    justify-content: space-between;
+    height: 580px;
+    padding-bottom: 80px;
+    padding-right: 29px;
+    padding-left: 20px;
+}
+.gallery-box{
+    width: 33%;
+    height: 300px;
+}
+.mini-title{
+    font-size: 70px;
+    text-align: center;
+    padding: 50px 0 30px;
+}
+.pics-in-pics{
+    position: relative;
+}
+.gallery-pic{
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+
+}
+.gallery-icon{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+}
+
+.margin-right{
+    margin-right: 50px;
+}
+
+
+/* section07 the home of tone */
+.section07{
+    background-image: url(../images/bg-wood-2.jpg);
+    background-size: cover;
+    width: 100%;
+    color: #fff;
+    padding: 50px 0 80px;
+}
+.flex{
+    display: flex;
+    justify-content: center;
+    flex-direction: row-reverse;
+}
+.tone-pic{
+    margin-right: 30px;
+}
+
+.note{
+    margin-top: 40px;
+    text-align: center;
+    width: 600px;
+}
+
+.small-title{
+    font-size: 40px;
+    margin-bottom: 40px;
+}
+.small-title::after{
+    content: '';
+    display: block;
+    border-bottom: 1px solid #FF6700;
+    width: 240px;
+    margin: 0 auto;
+    margin-top: 30px;
+
+}
+.message{
+    font-size: 40px;
+    font-family: "Proxima Nova";
+    margin-bottom: 30px;
+}
+
+.note p{
+    font-size: 24px;
+}
+.note p span{
+    font-size: 16px;
+}
+.randall{
+    font-size: 40px;
+}
+.designer{
+    padding-left: 15px;
+}
+.section07 .flex .note .stage-btn a{
+    margin-top: 50px;
+}
+
+
+/* section08 */
+.section08{
+    background-color: #292929;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    padding-bottom: 30px;
+
+}
+.section08 .message{
+    display: block;
+    margin: 0 auto;
+    font-size: 30px;
+    width: 50%;
+    text-align: center;
+    font-style: italic;
+    line-height: 45px;
+}
+.section08 .message::after, .section08 .message::before{
+    content: '';
+    display: block;
+    border-bottom: 1px solid #FF6700;
+    width: 350px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+
+.section08 .message::before{
+    padding-top: 60px;
+}
+
+.section08 .message::after{
+    padding: 20px;
+}
+
+.section08 .randall{
+    font-size: 25px;
+}
+
+.section08 .designer{
+    font-size: 16px;
+}
+
+
+/* pc-footer-menu footer menu */
+.pc-footer-menu{
+    width: 100%;
+    height: 400px;
+    background-image: url(../images/bg-footer.jpg);
+    background-size: cover;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    padding: 60px 250px;
+}
+.footer-box h3{
+    margin-bottom: 18px;
+}
+
+.footer-box p{
+    font-size: 14px;
+    line-height: 26px;
+}
+.footer-box p+p{
+    margin-bottom: 20px;
+}
+.footer-box p a{
+    text-decoration: none;
+    color: #FF6700;  
+}
+.footer-box p a:hover{
+    color: #DE7430;
+}
+.footer-img{
+    margin-bottom: 10px;
+}
+.input-box{
+    margin-bottom: 20px;
+}
+.logo-list{
+    display: flex;
+    justify-content: space-between;
+}
+.logo-list li{
+    list-style: none;
+}
+
+.footer-link{
+    list-style: none;
+    text-decoration: none;
+    color: #FF6700;
+    padding-right: 5px;
+}
+.footer-link:hover{
+    color: #DE7430;
+}
+.footer-nav-item::after{
+    content:'|';
+    margin: 0 10px;
+    color: #FF6700;
+}
+
+/* .footer-nav-item::after{
+    content: none;
+} */
+
+
+.sign-up-btn{
+    padding: 10px 20px;
+    border: 1px solid #FF6700;
+}
+.sign-up-btn:hover{
+    color: #FF6700;
+}
+.btn-p{
+    margin-top: 10px;
+}
+.btn{
+    padding: 5px 25px;
+    color: #68B632;
+    background-color: #fff;
+    border: 1px solid #68B632;
+    text-decoration: none;
+    transition: color 0.3s;
+    transition: background-color 0.3s;
+}
+.btn:hover{
+    background-color: #68B632;
+    color: #fff;
+    opacity: 0.3s;
+}
+
+
+.sns-box{
+    margin-bottom: 50px;
+
+}
+
+.glay{
+    color: #999;
+}
+
+.footer-link-box p{
+    margin-bottom: 10px;
+}
+
+
+
+/* section10 footer logos */
+.section10{
+    background-color: #292929;
+    color: #fff;
+    padding: 40px 0;
+}
+.footer-title{
+    text-align: center;
+    margin-bottom: 30px;
+}
+.maker-logo-group{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 60%;
+    margin: 0 auto;
+}
+.section10 .maker-logo-group li{
+    list-style-type: none;
+}
+
+.maker-logos{
+    height: 60px;
+    width: auto;
+}
+
+.steinburger, .mesaboogie{
+    height: 35px;
+}
+
+.sp-footer-menu{
+    display: none;
+}
+
+
+
+
+/* iPad等 TBサイト */
+@media screen and (min-width:768px) and ( max-width:950px){
+
+/* サイト全体のナビ */
+.site-nav-item{
+    font-size: 18px;
+}
+
+.global-nav{
+    display: block;
+    font-size: 20px;
+    height: 135px;
+    text-align: center;
+}
+
+.nav-item{
+    line-height: 50px;
+}
+.pc-header .logo{
+    display: block;
+    width: 150px;
+    height: auto;
+    margin-top: 20px;
+}
+
+.section03 .title{
+    font-size: 100px;
+}
+
+.tone-pic{
+    height: 300px;
+    width: auto;
+}
+
+
+.section05 .inner .amplitudes-box .series-name{
+    width: 100%;
+}
+.footer-nav-item::after{
+    content: none;
+}
+
+
+.section08 .message{
+    width: 80%;
+}
+
+
+.pc-footer-menu{
+    padding: 60px 50px;
+}
+
+.maker-logo-group{
+    width: 90%;
+}
+
+.footer-box-bigger{
+    width: 300px;
+}
+
+
+}
+
+
+
+
+
+/* SPサイト用 */
+@media screen and (max-width:767px){
+/* 全体 */
+body{
+    background-color: #292929;
+}
+.hidden{
+    display: none;
+}
+
+.show{
+    display: block;
+}
+
+/* sp-header */
+
+/* 一番上のロゴとハンバーガーメニューのとこ */
+.pc-header{
+    display: none;
+    text-align: center;
+}
+.sp-header{
+    background-color: #111;
+    display: block;
+    color: #fff;
+    width: 100%;
+    padding-top: 10px;
+}
+
+.menu{
+    cursor: pointer;
+    display: block;
+}
+
+.close{
+    cursor: pointer;
+}
+
+.sp-header .always-show{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px 30px;
+}
+
+
+.sp-header .logo, .sp-header h1{
+    height: 40px;
+}
+
+.material-icons{
+    color: #fff;
+    font-size: 36px;
+}
+
+.sp-header .nav-item{
+    text-align: center;
+    margin-top: 20px;
+    list-style-type: none;
+}
+.sp-header .nav-link{
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+.sp-header .site-nav-list{
+    padding-bottom: 30px;
+}
+.sp-header .site-nav{
+    text-align: center;
+    margin-top: 30px;
+}
+.sp-header .site-nav-item{
+    margin-top: 20px;
+    list-style-type: none;
+}
+.sp-header .site-nav-item-link{
+    color: #888888;
+    text-decoration: none;
+    font-size: 16px;
+    letter-spacing: 2px;
+}
+.sp-header .white{
+    color: #fff;
+}
+
+
+
+/* section01 */
+.item-box .logo-hover{
+    width: 100%;
+    bottom: 0;
+}
+
+/* section02 */
+.section02 .inner, .section03 .inner{
+    display: block;
+}
+
+.title{
+    font-size: 80px;
+}
+
+/* section03 */
+/* section04 */
+.item-panel{
+    width: 100%;
+    height: 210px;
+}
+.item-panel .name-box{
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+.item-name{
+    display: block;
+    width: 100%;
+    font-size: 36px;
+    opacity: 0.8;
+}
+.series-name{
+    width: 100%;
+    font-size: 24px;
+    opacity: 0.8;
+}
+
+
+/* section05 */
+
+.section05 .inner{
+    display: block;
+    padding: 0 20px;
+    width: 100%;
+}
+.amplitudes-box{
+    position: relative;
+    width: 100%;
+    height: 210px;
+    background-size: cover;
+    margin-bottom: 50px;
+}
+
+.section05 .inner .amplitudes-box .series-name{
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+}
+
+/* section06 */
+.section06{
+    display: block;
+    height: auto;
+}
+
+.gallery-box{
+    width: 100%;
+    height: 500px;
+}
+
+.gallery-pic{
+    height: 350px;
+    object-position: top 30px;
+}
+
+.mini-title{
+    font-size: 50px;
+}
+
+/* section07 */
+.flex{
+    flex-direction: column-reverse;
+    align-items: center;
+}
+
+.tone-pic{
+    margin-right: 0;
+    width: 300px;
+    height: auto;
+    object-fit: cover;
+}
+
+.note{
+    width: 80%;
+}
+
+
+/* section08 */
+.section08 .message{
+    width: 80%;
+    font-size: 20px;
+    line-height: 30px;
+}
+
+/* sp-footer-menu */
+.pc-footer-menu{
+    display: none;
+}
+.sp-footer-menu{
+    display: block;
+}
+
+.sp-footer-menu{
+    width: 100%;
+    height: 720px;
+    background-image: url(../images/bg-footer.jpg);
+    background-size: cover;
+    color: #fff;
+    padding: 40px 40px;
+}
+
+.footer-flex{
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-box-bigger{
+    text-align: center;
+}
+
+.sns-box{
+    width: 300px;
+    margin: 0 auto;
+}
+
+.footer-link-box{
+    margin: 0 auto;
+    width: 400px;
+}
+
+.sp-footer-menu .footer-box{
+    width: 50%;
+}
+
+
+.sp-footer-menu .footer-box h3{
+    margin: 15px 0 5px;
+}
+
+.sp-footer-menu .footer-box p{
+    margin-bottom: 5px;
+}
+
+/* section10 footer logos */
+.maker-logo-group{
+    flex-wrap: wrap;
+    width: 80%;
+    
+}
+
+.maker-logos{
+    height: 80px;
+    width: auto;
+    margin-bottom: 10px;
+}
+
+.steinburger, .mesaboogie{
+    height: 50px;
+    width: auto;
+}
+
+
+}
