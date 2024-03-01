@@ -1,0 +1,308 @@
+@charset "UTF-8";
+@media screen and (min-width: 960px) {
+  /* ===============================
+  		basic
+  ================================= */
+  html {
+    font-size: 0.65vw;
+  }
+  body {
+    font-size: 2rem;
+    padding: 0;
+  }
+  /* ===============================
+  共通
+  ================================= */
+  .container {
+    max-width: 1152px;
+  }
+  .title {
+    font-size: 3rem;
+    margin-top: 12%;
+    margin-bottom: 5%;
+  }
+  .title::after {
+    width: 80%;
+  }
+  .title.left::after {
+    margin-left: 20%;
+  }
+  .title.right::after {
+    margin-right: 20%;
+  }
+  .header .logo-link .site-title-group .site-title {
+    font-size: 2.5rem;
+  }
+  .header .logo-link .site-title-group .sub-title {
+    font-size: 1.2rem;
+  }
+  .footer .description {
+    font-size: 1.8rem;
+  }
+  /* ===============================
+  section1 first-view
+  ================================= */
+  .first-view .container .main-view .catch-copy {
+    font-size: 7rem;
+    top: 30%;
+    left: 25%;
+  }
+  .first-view .container .main-view .main-img1 {
+    left: 52%;
+    top: 15%;
+    width: 45%;
+  }
+  .first-view .container .main-view .main-img2 {
+    left: 24%;
+    top: 72%;
+    width: 25%;
+  }
+  .first-view .container .main-view .main-nav {
+    display: block;
+    position: absolute;
+    left: 3%;
+    bottom: 8%;
+  }
+  .first-view .container .main-view .main-nav .menu-list .list-item {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+  }
+  .first-view .container .main-view .main-nav .menu-list .list-item > a {
+    color: #444;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .first-view .my-name {
+    margin-top: 6%;
+  }
+  .first-view .my-name .pc {
+    display: block;
+    position: relative;
+    z-index: 3;
+    font-size: 13vw;
+    color: #eeeeee;
+  }
+  .first-view .my-name .sp {
+    display: none;
+  }
+  /* ===============================
+  section2 what can i do?
+  ================================= */
+  .what-can-i-do .title {
+    margin-bottom: 10%;
+  }
+  .what-can-i-do .flex-container {
+    flex-direction: row;
+  }
+  .what-can-i-do .flex-container .my-work-card {
+    width: 30%;
+    margin-bottom: 0;
+  }
+  .what-can-i-do .flex-container .my-work-card:nth-child(1) {
+    margin-top: 0%;
+  }
+  .what-can-i-do .flex-container .my-work-card:nth-child(2) {
+    margin-top: 3%;
+  }
+  .what-can-i-do .flex-container .my-work-card:nth-child(3) {
+    margin-top: 6%;
+  }
+  .what-can-i-do .flex-container .my-work-card .img-card .work-num {
+    font-size: 8rem;
+  }
+  .what-can-i-do .flex-container .my-work-card .work-title {
+    font-size: 2.8rem;
+    margin-bottom: 5%;
+  }
+  .what-can-i-do .flex-container .my-work-card .description {
+    line-height: 1.8;
+    font-size: 2rem;
+  }
+  .what-can-i-do .strength {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 8%;
+  }
+  .what-can-i-do .strength .s-title {
+    font-size: 3.5rem;
+  }
+  .what-can-i-do .strength .s-description {
+    font-size: 2rem;
+    line-height: 1.8;
+  }
+  /* ===============================
+  section3 My Creations
+  ================================= */
+  .mb {
+    margin-bottom: 10%;
+  }
+  .my-creations .flex-container {
+    flex-direction: row;
+  }
+  .my-creations .flex-container.fd-reverse {
+    flex-direction: row-reverse;
+  }
+  .my-creations .flex-container .left-box {
+    width: 48%;
+    align-items: center;
+    margin-bottom: 0;
+  }
+  .my-creations .flex-container .right-box {
+    width: 48%;
+    position: relative;
+  }
+  .my-creations .flex-container .right-box .description-box {
+    position: absolute;
+    bottom: 0;
+  }
+  .my-creations .flex-container .right-box .description-box .sub-title {
+    font-size: 2.8rem;
+  }
+  .my-creations .flex-container .right-box .description-box .description {
+    font-size: 1.8rem;
+    line-height: 1.8;
+  }
+  .my-creations .flex-container .right-box .description-box .creation-btn {
+    padding: 0;
+    text-align: left;
+    margin-top: 4%;
+  }
+  .my-creations .flex-container .right-box .description-box .creation-btn button {
+    font-size: 1.8rem;
+  }
+  .my-creations .flex-container.fd-reverse .left-box::after {
+    left: -8%;
+  }
+  .my-creations .creation-more-btn button a {
+    font-size: 1.8rem;
+  }
+  /* ===============================
+  section4 about me
+  ================================= */
+  .about-me .position-container .name-title {
+    margin-top: 9%;
+    font-size: 5.5rem;
+  }
+  .about-me .position-container .name-kanji {
+    top: -24%;
+    font-size: 14rem;
+  }
+  .about-me .position-container .flex-container {
+    flex-direction: row;
+  }
+  .about-me .position-container .flex-container .left-box {
+    width: 30%;
+    margin: 0;
+  }
+  .about-me .position-container .flex-container .left-box .my-pic {
+    width: 35%;
+  }
+  .about-me .position-container .flex-container .right-box {
+    width: 70%;
+  }
+  .about-me .position-container .flex-container .right-box > p {
+    font-size: 2rem;
+    line-height: 1.8;
+  }
+  /* ===============================
+  		section5 inquiry flow
+  ================================= */
+  .inquiry-flow .flow-title {
+    text-align: center;
+    margin-bottom: 4%;
+    font-size: 3rem;
+  }
+  .inquiry-flow .flow-box {
+    height: 300px;
+    position: relative;
+  }
+  .inquiry-flow .flow-box .flow-card {
+    height: 300px;
+    width: 30%;
+    -webkit-clip-path: polygon(0 0, 83% 0, 100% 50%, 83% 100%, 0 100%);
+            clip-path: polygon(0 0, 83% 0, 100% 50%, 83% 100%, 0 100%);
+    position: absolute;
+  }
+  .inquiry-flow .flow-box .flow-card .wrapper {
+    padding: 30px 20px 0 30px;
+  }
+  .inquiry-flow .flow-box .flow-card .wrapper .flex-container {
+    justify-content: flex-start;
+    align-items: flex-end;
+  }
+  .inquiry-flow .flow-box .flow-card:first-child {
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background-color: #888;
+    padding-left: 2%;
+  }
+  .inquiry-flow .flow-box .flow-card:nth-child(2) {
+    top: 0;
+    left: 24%;
+    z-index: 8;
+    background-color: #999;
+    width: 31%;
+    height: 300px;
+  }
+  .inquiry-flow .flow-box .flow-card:nth-child(2) .wrapper {
+    margin-top: 0;
+    margin-left: 17%;
+    width: 66%;
+  }
+  .inquiry-flow .flow-box .flow-card:nth-child(3) {
+    top: 0;
+    left: 49%;
+    z-index: 6;
+    background-color: #aaa;
+    width: 31%;
+    height: 300px;
+  }
+  .inquiry-flow .flow-box .flow-card:nth-child(3) .wrapper {
+    margin-top: 0;
+    margin-left: 17%;
+    width: 66%;
+  }
+  .inquiry-flow .flow-box .flow-card:nth-child(4) {
+    top: 0;
+    left: 74%;
+    z-index: 4;
+    background-color: #bbb;
+    -webkit-clip-path: none;
+            clip-path: none;
+    width: 26%;
+    height: 300px;
+  }
+  .inquiry-flow .flow-box .flow-card:nth-child(4) .wrapper {
+    margin-top: 0;
+    margin-left: 22%;
+    width: 78%;
+  }
+  .inquiry-flow .flow-box .flow-card .wrapper {
+    width: 80%;
+  }
+  .inquiry-flow .flow-box .flow-card .wrapper .flex-container {
+    margin-bottom: 12%;
+  }
+  .inquiry-flow .flow-box .flow-card .wrapper .flex-container .flow-num {
+    font-size: 6rem;
+    margin-right: 15px;
+  }
+  .inquiry-flow .flow-box .flow-card .wrapper .flex-container .card-title {
+    font-size: 2.2rem;
+  }
+  .inquiry-flow .flow-box .flow-card .wrapper .flow-description {
+    font-size: 1.8rem;
+  }
+  .inquiry-flow .flow-btn {
+    text-align: center;
+    margin: 5% 0 8%;
+  }
+  .inquiry-flow .flow-btn button {
+    padding: 20px 40px;
+  }
+  .inquiry-flow .flow-btn button a {
+    text-decoration: none;
+    color: #333;
+  }
+}/*# sourceMappingURL=pc-style.css.map */
