@@ -1,0 +1,395 @@
+@media screen and (min-width: 960px) {
+  /* ===============================
+		basic
+================================= */
+  html {
+    font-size: 0.65vw;
+  }
+
+  body {
+    font-size: 2rem;
+    padding: 0;
+  }
+
+  /* ===============================
+		共通
+  ================================= */
+  .container {
+    max-width: 1152px;
+  }
+
+  .title {
+    font-size: 3rem;
+    margin-top: 12%;
+    margin-bottom: 5%;
+
+    &::after {
+      width: 80%;
+    }
+    &.left::after {
+      margin-left: 20%;
+    }
+    &.right::after {
+      margin-right: 20%;
+    }
+  }
+
+  .header {
+    & .logo-link {
+      & .site-title-group {
+        & .site-title {
+          font-size: 2.5rem;
+        }
+        & .sub-title {
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
+
+  .footer {
+    & .description {
+      font-size: 1.8rem;
+    }
+  }
+
+  /* ===============================
+		section1 first-view
+  ================================= */
+  .first-view {
+    & .container {
+      & .main-view {
+        & .catch-copy {
+          font-size: 7rem;
+          top: 30%;
+          left: 25%;
+        }
+
+        & .main-img1 {
+          left: 52%;
+          top: 15%;
+          width: 45%;
+        }
+        & .main-img2 {
+          left: 24%;
+          top: 72%;
+          width: 25%;
+        }
+
+        & .main-nav {
+          display: block;
+          position: absolute;
+          left: 3%;
+          bottom: 8%;
+
+          & .menu-list {
+            & .list-item {
+              font-size: 2.2rem;
+              margin-bottom: 20px;
+
+              & > a {
+                color: #444;
+                text-decoration: none;
+                cursor: pointer;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    & .my-name {
+      margin-top: 6%;
+
+      & .pc {
+        display: block;
+        position: relative;
+        z-index: 3;
+        font-size: 13vw;
+        color: #eeeeee;
+      }
+
+      & .sp {
+        display: none;
+      }
+    }
+  }
+
+  /* ===============================
+		section2 what can i do?
+  ================================= */
+  .what-can-i-do {
+    & .title {
+      margin-bottom: 10%;
+    }
+
+    & .flex-container {
+      flex-direction: row;
+
+      & .my-work-card {
+        width: 30%;
+        margin-bottom: 0;
+
+        @for $i from 1 through 3 {
+          &:nth-child(#{$i}) {
+            margin-top: $i * 3% - 3%;
+          }
+        }
+
+        & .img-card {
+          & .work-num {
+            font-size: 8rem;
+          }
+        }
+
+        & .work-title {
+          font-size: 2.8rem;
+          margin-bottom: 5%;
+        }
+        & .description {
+          line-height: 1.8;
+          font-size: 2rem;
+        }
+      }
+    }
+
+    & .strength {
+      width: 80%;
+      margin: 0 auto;
+      margin-top: 8%;
+
+      & .s-title {
+        font-size: 3.5rem;
+      }
+
+      & .s-description {
+        font-size: 2rem;
+        line-height: 1.8;
+      }
+    }
+  }
+
+  /* ===============================
+		section3 My Creations
+  ================================= */
+  .mb {
+    margin-bottom: 10%;
+  }
+
+  .my-creations {
+    & .flex-container {
+      flex-direction: row;
+
+      &.fd-reverse {
+        flex-direction: row-reverse;
+      }
+
+      .left-box {
+        width: 48%;
+        align-items: center;
+        margin-bottom: 0;
+      }
+
+      .right-box {
+        width: 48%;
+        position: relative;
+
+        & .description-box {
+          position: absolute;
+          bottom: 0;
+
+          & .sub-title {
+            font-size: 2.8rem;
+          }
+
+          & .description {
+            font-size: 1.8rem;
+            line-height: 1.8;
+          }
+
+          & .creation-btn {
+            padding: 0;
+            text-align: left;
+            margin-top: 4%;
+
+            & button {
+              font-size: 1.8rem;
+            }
+          }
+        }
+      }
+    }
+
+    & .flex-container.fd-reverse {
+      & .left-box {
+        &::after {
+          left: -8%;
+        }
+      }
+    }
+    & .creation-more-btn {
+      & button {
+        & a {
+          font-size: 1.8rem;
+        }
+      }
+    }
+  }
+
+  /* ===============================
+		section4 about me
+  ================================= */
+  .about-me {
+    & .position-container {
+      & .name-title {
+        margin-top: 9%;
+        font-size: 5.5rem;
+      }
+
+      & .name-kanji {
+        top: -24%;
+        font-size: 14rem;
+      }
+
+      & .flex-container {
+        flex-direction: row;
+
+        & .left-box {
+          width: 30%;
+          margin: 0;
+
+          & .my-pic {
+            width: 35%;
+          }
+        }
+        & .right-box {
+          width: 70%;
+
+          & > p {
+            font-size: 2rem;
+            line-height: 1.8;
+          }
+        }
+      }
+    }
+  }
+
+  /* ===============================
+		section5 inquiry flow
+================================= */
+  .inquiry-flow {
+    & .flow-title {
+      text-align: center;
+      margin-bottom: 4%;
+      font-size: 3rem;
+    }
+
+    & .flow-box {
+      height: 300px;
+      position: relative;
+
+      & .flow-card {
+        height: 300px;
+        width: 30%;
+        clip-path: polygon(0 0, 83% 0, 100% 50%, 83% 100%, 0 100%);
+        position: absolute;
+
+        & .wrapper {
+          padding: 30px 20px 0 30px;
+
+          & .flex-container {
+            justify-content: flex-start;
+            align-items: flex-end;
+          }
+        }
+
+        &:first-child {
+          top: 0;
+          left: 0;
+          z-index: 10;
+          background-color: #888;
+          padding-left: 2%;
+        }
+
+        &:nth-child(2) {
+          top: 0;
+          left: 24%;
+          z-index: 8;
+          background-color: #999;
+          width: 31%;
+          height: 300px;
+
+          & .wrapper {
+            margin-top: 0;
+            margin-left: 17%;
+            width: 66%;
+          }
+        }
+
+        &:nth-child(3) {
+          top: 0;
+          left: 49%;
+          z-index: 6;
+          background-color: #aaa;
+          width: 31%;
+          height: 300px;
+
+          & .wrapper {
+            margin-top: 0;
+            margin-left: 17%;
+            width: 66%;
+          }
+        }
+
+        &:nth-child(4) {
+          top: 0;
+          left: 74%;
+          z-index: 4;
+          background-color: #bbb;
+          clip-path: none;
+          width: 26%;
+          height: 300px;
+
+          & .wrapper {
+            margin-top: 0;
+            margin-left: 22%;
+            width: 78%;
+          }
+        }
+
+        & .wrapper {
+          width: 80%;
+
+          & .flex-container {
+            margin-bottom: 12%;
+
+            & .flow-num {
+              font-size: 6rem;
+              margin-right: 15px;
+            }
+            & .card-title {
+              font-size: 2.2rem;
+            }
+          }
+          & .flow-description {
+            font-size: 1.8rem;
+          }
+        }
+      }
+    }
+
+    & .flow-btn {
+      text-align: center;
+      margin: 5% 0 8%;
+
+      & button {
+        padding: 20px 40px;
+
+        & a {
+          text-decoration: none;
+          color: #333;
+        }
+      }
+    }
+  }
+}

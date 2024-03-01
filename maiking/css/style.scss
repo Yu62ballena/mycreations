@@ -1,0 +1,483 @@
+@charset "UTF-8";
+
+/* ===============================
+		basic
+================================= */
+html {
+  font-size: 6vw;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  color: #444;
+  font-family: serif;
+  padding: 0 2%;
+}
+
+/* ===============================
+		一時テスト用
+================================= */
+.border {
+  border: 1px solid red;
+}
+
+/* ===============================
+		共通
+================================= */
+// コンテンツ幅
+.container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+// タイトル
+.title {
+  font-family: serif;
+  font-size: 1.2rem;
+  margin-top: 22%;
+  margin-bottom: 6%;
+  position: relative;
+
+  &::after {
+    position: absolute;
+    content: "";
+    top: 50%;
+    width: 40%;
+    height: 1px;
+    background-color: #333;
+  }
+
+  &.left {
+    &::after {
+      left: 0;
+      margin-left: 60%;
+    }
+  }
+
+  &.right {
+    text-align: right;
+
+    &::after {
+      right: 0;
+      margin-right: 60%;
+    }
+  }
+}
+
+// flex 横並び
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+// header
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 0;
+
+  & .logo-link {
+    text-decoration: none;
+    color: #333;
+
+    & .site-title-group {
+      text-align: center;
+
+      & .site-title {
+        font-size: 1rem;
+      }
+      & .sub-title {
+        font-size: 0.5rem;
+      }
+    }
+  }
+
+  & .menu-btn {
+    text-align: right;
+  }
+}
+
+// footer
+.footer {
+  background-color: #333;
+  text-align: center;
+  padding: 8% 0;
+
+  & .description {
+    color: white;
+    font-size: 0.7rem;
+  }
+}
+
+/* ===============================
+		section1 first-view
+================================= */
+.first-view {
+  & .container {
+    & .main-view {
+      height: 100vh;
+      position: relative;
+
+      & .catch-copy {
+        font-size: 1.8rem;
+        position: absolute;
+        top: 40%;
+        left: 15%;
+        z-index: 2;
+
+        // & > span {
+        //   position: absolute;
+        //   top: 35%;
+        //   left: 30%;
+        // }
+      }
+
+      & .main-img1 {
+        position: absolute;
+        left: 30%;
+        top: 15%;
+        width: 65%;
+      }
+
+      & .main-img2 {
+        position: absolute;
+        left: 12%;
+        top: 70%;
+        width: 40%;
+      }
+
+      & .main-nav {
+        display: none;
+      }
+    }
+  }
+
+  & .my-name {
+    width: 100vw;
+    text-align: center;
+
+    & .pc {
+      display: none;
+    }
+
+    & .sp {
+      position: relative;
+      z-index: 3;
+      font-size: 28vw;
+      color: #eeeeee;
+    }
+  }
+}
+
+/* ===============================
+		section2  what can i do?
+================================= */
+.what-can-i-do {
+  & .title {
+    margin-bottom: 20%;
+  }
+
+  & .flex-container {
+    flex-direction: column;
+
+    & .my-work-card {
+      width: 100%;
+      margin-bottom: 20%;
+
+      & .img-card {
+        position: relative;
+
+        & .work-img {
+          width: 100%;
+        }
+
+        & .work-num {
+          position: absolute;
+          top: -15%;
+          left: 5%;
+          z-index: 3;
+          font-size: 3.6rem;
+        }
+      }
+
+      & .work-title {
+        font-family: serif;
+        margin-top: 5%;
+        margin-bottom: 3%;
+        font-size: 0.9rem;
+      }
+
+      & .description {
+        line-height: 1.6;
+        font-size: 0.7rem;
+      }
+    }
+  }
+
+  & .strength {
+    width: 100%;
+    margin-top: 5%;
+
+    & .s-title {
+      font-size: 1.5rem;
+    }
+
+    & .s-description {
+      margin-top: 3%;
+      line-height: 1.6;
+      font-size: 0.65rem;
+    }
+  }
+}
+
+/* ===============================
+		section3 My Creations
+================================= */
+.mb {
+  margin-bottom: 20%;
+}
+
+.my-creations {
+  & .flex-container {
+    flex-direction: column;
+
+    .left-box {
+      width: 100%;
+      align-items: center;
+      position: relative;
+      margin-bottom: 10%;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 10%;
+        left: 8%;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background-color: #eeeeee;
+      }
+
+      & .creation {
+        width: 100%;
+      }
+    }
+
+    .right-box {
+      width: 100%;
+
+      & .description-box {
+        & .sub-title {
+          font-size: 1rem;
+          margin-bottom: 6%;
+        }
+
+        & .description {
+          font-size: 0.65rem;
+          line-height: 1.6;
+        }
+
+        & .creation-btn {
+          // まだ
+          text-align: center;
+
+          & button {
+            margin-top: 4%;
+            font-size: 0.5rem;
+            padding: 10px 20px;
+
+            & > a {
+              text-decoration: none;
+              color: #333;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  & .creation-more-btn {
+    text-align: center;
+    & button {
+      padding: 10px 20px;
+      & a {
+        text-decoration: none;
+        font-size: 0.7rem;
+        color: #333;
+      }
+    }
+  }
+}
+
+/* ===============================
+		section4 about me
+================================= */
+.about-me {
+  & .position-container {
+    position: relative;
+
+    & .name-title {
+      margin-top: 20%;
+      font-size: 1.6rem;
+    }
+
+    & .name-kanji {
+      position: absolute;
+      top: -11%;
+      left: 3%;
+      color: #cccccc;
+      font-size: 3.5rem;
+      z-index: -1;
+    }
+
+    & .flex-container {
+      flex-direction: column;
+
+      & .left-box {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 15%;
+        margin-bottom: 10%;
+
+        & .my-pic {
+          width: 40%;
+          object-fit: contain;
+        }
+      }
+      & .right-box {
+        width: 100%;
+        margin-top: 5%;
+
+        & > p {
+          font-size: 0.7rem;
+          line-height: 1.6;
+        }
+      }
+    }
+  }
+}
+
+/* ===============================
+		section5 inquiry flow
+================================= */
+.inquiry-flow {
+  & .flow-title {
+    text-align: center;
+    margin-top: 10%;
+    margin-bottom: 12%;
+    font-size: 1rem;
+  }
+
+  & .flow-box {
+    height: 1080px;
+    position: relative;
+
+    & .flow-card {
+      height: 280px;
+      width: 100%;
+      clip-path: polygon(0 0, 100% 0, 100% 83%, 50% 100%, 0 83%);
+      position: absolute;
+
+      & .wrapper {
+        width: 100%;
+        padding: 30px 20px 0;
+
+        & .flex-container {
+          justify-content: flex-start;
+          align-items: flex-end;
+        }
+      }
+
+      &:first-child {
+        top: 0;
+        left: 0;
+        z-index: 10;
+        background-color: #888;
+      }
+
+      &:nth-child(2) {
+        top: 224px;
+        left: 0;
+        z-index: 8;
+        height: 320px;
+        width: 100%;
+        background-color: #999;
+
+        & .wrapper {
+          margin-top: 7%;
+          width: 100%;
+        }
+      }
+
+      &:nth-child(3) {
+        top: 480px;
+        left: 0;
+        z-index: 6;
+        background-color: #aaa;
+        width: 100%;
+        height: 320px;
+
+        & .wrapper {
+          margin-top: 12%;
+          width: 100%;
+        }
+      }
+
+      &:nth-child(4) {
+        top: 736px;
+        left: 0;
+        z-index: 4;
+        background-color: #bbb;
+        clip-path: none;
+        width: 100%;
+        height: 320px;
+
+        & .wrapper {
+          // margin-left: 22%;
+          margin-top: 14%;
+          width: 100%;
+        }
+      }
+
+      & .wrapper {
+        // width: 100%;
+
+        & .flex-container {
+          margin-bottom: 12%;
+
+          & .flow-num {
+            font-size: 1.2rem;
+            margin-right: 15px;
+          }
+          & .card-title {
+            font-size: 1rem;
+          }
+        }
+        & .flow-description {
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
+
+  & .flow-btn {
+    text-align: center;
+    margin: 5% 0 8%;
+
+    & button {
+      padding: 20px 40px;
+
+      & a {
+        text-decoration: none;
+        color: #333;
+      }
+    }
+  }
+}
