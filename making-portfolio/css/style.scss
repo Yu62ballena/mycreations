@@ -1,0 +1,1341 @@
+@charset "UTF-8";
+
+/* ===============================
+		変数
+================================= */
+// スマホ用フォントサイズ
+$fs-sp-base: clamp(14px, 0.7rem, 0.7rem);
+$fs-sp-h1: clamp(18px, 0.7rem, 0.7rem);
+$fs-sp-h2: clamp(26px, 1.2rem, 38px);
+$fs-sp-btn: clamp(16px, 0.6rem, 0.6rem);
+
+// PC用フォントサイズ
+$fs-PC-base: clamp(20px, 2rem, 2rem);
+$fs-PC-h1: clamp(25px, 3rem, 3rem);
+$fs-PC-h2: clamp(30px, 5rem, 5rem);
+$fs-PC-btn: clamp(16px, 1.6rem, 1.6rem);
+
+// カラー
+$cblack: #333;
+$cGray: #eeeeee;
+
+/* ===============================
+		basic
+================================= */
+html {
+  font-size: 6vw;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  color: #444;
+  font-family: serif;
+
+  & .whole-container {
+    padding: 0 2%;
+  }
+}
+
+/* ===============================
+		一時テスト用
+================================= */
+.border {
+  border: 1px solid red;
+}
+
+/* ===============================
+		共通
+================================= */
+// コンテンツ幅
+.container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+// タイトル
+.title {
+  font-family: serif;
+  font-size: $fs-sp-h2;
+  margin-top: 22%;
+  margin-bottom: 6%;
+  position: relative;
+
+  &::after {
+    position: absolute;
+    content: "";
+    top: 50%;
+    width: 40%;
+    height: 1px;
+    background-color: #333;
+  }
+
+  &.left {
+    &::after {
+      left: 0;
+      margin-left: 60%;
+    }
+  }
+
+  &.right {
+    text-align: right;
+
+    &::after {
+      right: 0;
+      margin-right: 60%;
+    }
+  }
+}
+
+// flex 横並び
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+// header
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 0;
+  animation-delay: 0.4s;
+
+  & .logo-link {
+    text-decoration: none;
+    color: $cblack;
+
+    & .site-title-group {
+      text-align: center;
+
+      & .site-title {
+        font-size: $fs-sp-h1;
+      }
+      & .sub-title {
+        font-size: calc($fs-sp-h1 * 0.55);
+      }
+    }
+  }
+
+  & .menu-btn {
+    & .hamburger-btn {
+      position: relative;
+      background: #fff;
+      cursor: pointer;
+      width: 100px;
+      height: 80px;
+      border-radius: 5px;
+
+      & span {
+        display: inline-block;
+        transition: all 0.3s; /*アニメーションの設定*/
+        position: absolute;
+        right: 14px;
+        height: 1.5px;
+        border-radius: 2px;
+        background: #333;
+
+        &:nth-of-type(1) {
+          top: 15px;
+          width: 60%;
+        }
+        &:nth-of-type(2) {
+          top: 30px;
+          width: 45%;
+        }
+        &:nth-of-type(3) {
+          top: 45px;
+          width: 35%;
+        }
+      }
+
+      &.active span {
+        &:nth-of-type(1) {
+          top: 18px;
+          right: 18px;
+          transform: translateY(6px) rotate(-135deg);
+          width: 30%;
+        }
+
+        &:nth-of-type(2) {
+          opacity: 0;
+        }
+
+        &:nth-of-type(3) {
+          top: 30px;
+          right: 18px;
+          transform: translateY(-6px) rotate(135deg);
+          width: 30%;
+        }
+      }
+    }
+  }
+}
+
+// footer
+.footer {
+  background-color: #333;
+  text-align: center;
+  padding: 8% 0;
+
+  & .description {
+    color: white;
+    font-size: 14px;
+  }
+}
+
+// ボタン
+.btn-wrap {
+  padding: 0;
+  margin: 0;
+  border: none;
+  background-color: white;
+}
+
+.btn,
+a.btn,
+button.btn {
+  font-size: calc($fs-sp-btn * 0.8);
+  @media screen and (min-width: 768px) {
+    font-size: $fs-PC-btn;
+  }
+
+  font-weight: 700;
+  line-height: 1.5;
+  position: relative;
+  display: inline-block;
+  padding: 1rem 4rem;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  color: #666;
+  border-radius: 0.5rem;
+}
+
+.creation-btn,
+.to-other-btn {
+  & .btn-wrap {
+    a.btn-svg {
+      font-weight: 700;
+      line-height: 54px;
+
+      width: 204px;
+      height: 54px;
+      padding: 0;
+
+      cursor: pointer;
+      text-decoration: none;
+
+      background-color: transparent;
+    }
+
+    a.btn-svg svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      width: 100%;
+      height: 100%;
+    }
+
+    a.btn-svg svg rect {
+      -webkit-transition: all 400ms ease;
+      transition: all 500ms ease;
+
+      stroke: #666;
+      stroke-width: 2;
+      stroke-dasharray: 200px, 16px;
+      stroke-dashoffset: 70px;
+    }
+
+    a.btn-svg:hover svg rect {
+      stroke-dashoffset: 284px;
+    }
+
+    a.btn-svg span {
+      color: #666;
+    }
+  }
+}
+
+.to-other-btn {
+  text-align: center;
+  margin: 5% 0 8%;
+}
+
+/* ===============================
+		section1 first-view
+================================= */
+.first-view {
+  & .container {
+    & .main-view {
+      height: 100vh;
+      position: relative;
+
+      & .catch-copy {
+        font-size: clamp(50px, 1.8rem, 1.8rem);
+        position: absolute;
+        top: 40%;
+        left: 15%;
+        z-index: 2;
+      }
+
+      & .main-img1 {
+        position: absolute;
+        left: 30%;
+        top: 15%;
+        width: 65%;
+        animation-delay: 0.3s;
+      }
+
+      & .main-img2 {
+        position: absolute;
+        left: 12%;
+        top: 70%;
+        width: 40%;
+        animation-delay: 0.6s;
+      }
+
+      & .main-nav {
+        display: none;
+      }
+    }
+  }
+
+  & .my-name {
+    width: 100vw;
+    text-align: center;
+
+    & .pc {
+      display: none;
+    }
+
+    & .sp {
+      position: relative;
+      z-index: 3;
+      font-size: 28vw;
+      color: $cGray;
+    }
+  }
+}
+
+/* ===============================
+		section2  what can i do?
+================================= */
+.what-can-i-do {
+  & .title {
+    margin-bottom: 20%;
+  }
+
+  & .flex-container {
+    flex-direction: column;
+
+    & .work-card-wrapper {
+      position: relative;
+
+      & .work-num {
+        position: absolute;
+        top: -7%;
+        left: 5%;
+        z-index: 40;
+        font-size: clamp(40px, 2.8rem, 2.8rem);
+      }
+
+      & .cover-slide {
+        & .my-work-card {
+          width: 100%;
+          margin-bottom: 20%;
+
+          & .img-card {
+            position: relative;
+
+            & .work-img {
+              width: 100%;
+            }
+          }
+
+          & .char-box {
+            padding: 0 5%;
+
+            & .work-title {
+              font-family: serif;
+              margin-top: 5%;
+              margin-bottom: 5%;
+              font-size: calc($fs-sp-h1 * 1.05);
+            }
+
+            & .description {
+              line-height: 1.6;
+              font-size: calc($fs-sp-h1 * 0.95);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  & .strength {
+    width: 100%;
+    margin-top: 5%;
+
+    & .slide-image {
+      & .s-title {
+        font-size: $fs-sp-h2;
+      }
+
+      & .s-description {
+        margin-top: 3%;
+        line-height: 1.6;
+        font-size: $fs-sp-base;
+        padding: 0 5%;
+      }
+    }
+  }
+}
+
+/* ===============================
+		section3 My Creations
+================================= */
+.mb {
+  margin-bottom: 20%;
+}
+
+.my-creations {
+  & .cover-slide {
+    & .flex-container {
+      flex-direction: column;
+
+      .left-box {
+        width: 100%;
+        align-items: center;
+        position: relative;
+        margin-bottom: 10%;
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 10%;
+          left: 8%;
+          width: 100%;
+          height: 100%;
+          z-index: -1;
+          background-color: #eeeeee;
+        }
+
+        & .creation {
+          width: 100%;
+        }
+      }
+
+      .right-box {
+        width: 100%;
+
+        & .description-box {
+          & .sub-title {
+            font-size: calc($fs-sp-h1 * 1.05);
+            margin-bottom: 6%;
+          }
+
+          & .description {
+            font-size: calc($fs-sp-h1 * 0.95);
+            line-height: 1.6;
+          }
+
+          & .language {
+            font-size: 14px;
+            margin-top: 6%;
+            margin-bottom: 5%;
+          }
+        }
+      }
+    }
+  }
+
+  & .creation-more-btn {
+    text-align: center;
+    & button {
+      padding: 10px 20px;
+      & a {
+        text-decoration: none;
+        font-size: $fs-sp-btn;
+        color: $cblack;
+      }
+    }
+  }
+}
+
+/* ===============================
+		section4 about me
+================================= */
+.about-me {
+  & .position-container {
+    position: relative;
+
+    & .name-title {
+      margin-top: 20%;
+      font-size: 1.6rem;
+      animation-delay: 0.6s;
+    }
+
+    & .name-kanji {
+      position: absolute;
+      top: -11%;
+      left: 3%;
+      color: $cGray;
+      font-size: 3.5rem;
+      z-index: -1;
+      animation-delay: 0.4s;
+    }
+
+    & .flex-container {
+      flex-direction: column;
+
+      & .left-box {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 15%;
+        margin-bottom: 10%;
+
+        & .my-pic {
+          width: 40%;
+          object-fit: contain;
+          animation-delay: 0.7s;
+        }
+      }
+      & .right-box {
+        width: 100%;
+        margin-top: 5%;
+        animation-delay: 0.9s;
+
+        & > p {
+          font-size: $fs-sp-base;
+          line-height: 1.6;
+        }
+      }
+    }
+  }
+}
+
+/* ===============================
+		section5 inquiry flow
+================================= */
+.inquiry-flow {
+  & .flow-title {
+    text-align: center;
+    margin-top: 10%;
+    margin-bottom: 12%;
+    font-size: calc($fs-sp-h2 * 0.85);
+    animation-delay: 0.2s;
+  }
+
+  & .flow-box {
+    height: 1080px;
+    position: relative;
+    animation-delay: 0.4s;
+
+    & .flow-card {
+      height: 280px;
+      width: 100%;
+      clip-path: polygon(0 0, 100% 0, 100% 83%, 50% 95%, 0 83%);
+      position: absolute;
+
+      & .wrapper {
+        width: 100%;
+        padding: 5% 20px 0;
+
+        & .flex-container {
+          justify-content: flex-start;
+          align-items: flex-end;
+        }
+      }
+
+      &:first-child {
+        top: 0;
+        left: 0;
+        z-index: 10;
+        background-color: #888;
+      }
+
+      &:nth-child(2) {
+        top: 20%;
+        left: 0;
+        z-index: 8;
+        height: 320px;
+        width: 100%;
+        background-color: #999;
+
+        & .wrapper {
+          margin-top: 8%;
+          width: 100%;
+        }
+      }
+
+      &:nth-child(3) {
+        top: 480px;
+        left: 0;
+        z-index: 6;
+        background-color: #aaa;
+        width: 100%;
+        height: 320px;
+
+        & .wrapper {
+          margin-top: 8%;
+          width: 100%;
+        }
+      }
+
+      &:nth-child(4) {
+        top: 736px;
+        left: 0;
+        z-index: 4;
+        background-color: #bbb;
+        clip-path: none;
+        width: 100%;
+        height: 320px;
+
+        & .wrapper {
+          margin-top: 10%;
+          width: 100%;
+        }
+      }
+
+      & .wrapper {
+        & .flex-container {
+          margin-bottom: 8%;
+
+          & .flow-num {
+            font-size: calc($fs-sp-h2 * 1.4);
+            margin-right: 15px;
+          }
+          & .card-title {
+            font-size: clamp(20px, 0.6rem, 24px);
+          }
+        }
+        & .flow-description {
+          font-size: clamp(18px, 0.7rem, 20px);
+        }
+      }
+    }
+  }
+
+  & .flow-btn {
+    text-align: center;
+    margin: 5% 0 8%;
+    // animation-delay: 0.5s;
+
+    & button {
+      padding: 20px 40px;
+
+      & a {
+        text-decoration: none;
+        color: $cblack;
+      }
+    }
+  }
+}
+
+/* ===============================
+		page  Get in Touch with Me
+================================= */
+.get-in-touch-with-me {
+  margin: 0 auto 5%;
+
+  & .title {
+    margin-top: 5%;
+    margin-bottom: 5%;
+
+    &::after {
+      width: 15%;
+    }
+
+    &.left {
+      &::after {
+        left: 0;
+        margin-left: 85%;
+      }
+    }
+  }
+
+  & .flex-container {
+    justify-content: space-between;
+    flex-direction: column;
+
+    & .left-box {
+      width: 100%;
+
+      & .contact-img {
+        width: 100%;
+        aspect-ratio: 3 / 2;
+        object-fit: cover;
+        margin-bottom: 10%;
+      }
+    }
+
+    & .right-box {
+      width: 100%;
+
+      & .form {
+        & .contact-heading {
+          margin-bottom: 2%;
+
+          & .contact-label {
+            font-size: $fs-sp-base;
+
+            & .contact-span {
+              background-color: #888;
+              color: #fff;
+              padding: 2px 5px;
+              font-size: 0.5rem;
+              margin-left: 15px;
+            }
+          }
+        }
+
+        & .input-area {
+          margin-bottom: 10%;
+
+          & .contact-textbox {
+            width: 100%;
+            height: 50px;
+          }
+
+          & .contact-textarea {
+            width: 100%;
+            height: 300px;
+          }
+        }
+
+        & .contact-btn {
+          border: none;
+          background-color: #888;
+          color: #fff;
+          padding: 10px 50px;
+          font-size: $fs-sp-btn;
+        }
+      }
+    }
+  }
+}
+
+/* ===============================
+		page All of My Creations
+================================= */
+.all-of-my-creations {
+  & .title {
+    margin-top: 5%;
+    margin-bottom: 5%;
+
+    &::after {
+      width: 27%;
+    }
+
+    &.left {
+      &::after {
+        left: 0;
+        margin-left: 73%;
+      }
+    }
+  }
+
+  & .my-creation {
+    padding-bottom: 8%;
+    margin-bottom: 5%;
+    border-bottom: 1px solid #888;
+
+    & .flex-container {
+      display: flex;
+      flex-direction: column;
+
+      & .left-box {
+        width: 100%;
+
+        & img {
+          width: 100%;
+          margin-bottom: 5%;
+        }
+      }
+      & .right-box {
+        width: 100%;
+
+        & .creation-title {
+          margin-bottom: 5%;
+          font-size: calc($fs-sp-h1 * 0.9);
+        }
+        & .description {
+          font-size: calc($fs-sp-base * 0.8);
+          line-height: 1.6;
+        }
+        & .language {
+          font-size: 14px;
+          margin-top: 5%;
+        }
+        & .creation-btn {
+          margin-top: 5%;
+          text-align: center;
+
+          & button {
+            font-size: calc($fs-sp-btn * 0.8);
+          }
+        }
+      }
+    }
+  }
+}
+
+/* ===============================
+		PCサイト用
+================================= */
+
+@media screen and (min-width: 768px) {
+  /* ===============================
+		basic
+================================= */
+  html {
+    font-size: 0.65vw;
+  }
+
+  body {
+    font-size: $fs-PC-base;
+  }
+
+  /* ===============================
+		共通
+  ================================= */
+  .container {
+    max-width: 1152px;
+  }
+
+  .title {
+    font-size: $fs-PC-h2;
+    margin-top: 12%;
+    margin-bottom: 5%;
+
+    &::after {
+      width: 70%;
+    }
+    &.left::after {
+      margin-left: 30%;
+    }
+    &.right::after {
+      margin-right: 30%;
+    }
+  }
+
+  .header {
+    & .logo-link {
+      & .site-title-group {
+        & .site-title {
+          font-size: $fs-PC-h1;
+        }
+        & .sub-title {
+          font-size: calc($fs-PC-h1 * 0.5);
+        }
+      }
+    }
+  }
+
+  .footer {
+    & .description {
+      font-size: 14px;
+    }
+  }
+
+  /* ===============================
+		section1 first-view
+  ================================= */
+  .first-view {
+    & .container {
+      & .main-view {
+        & .catch-copy {
+          font-size: clamp(60px, 8rem, 8rem);
+          top: 30%;
+          left: 25%;
+        }
+
+        & .main-img1 {
+          left: 52%;
+          top: 15%;
+          width: 45%;
+        }
+        & .main-img2 {
+          left: 24%;
+          top: 72%;
+          width: 25%;
+        }
+
+        & .main-nav {
+          display: block;
+          position: absolute;
+          left: 3%;
+          bottom: 12%;
+
+          & .menu-list {
+            & .list-item {
+              font-size: calc($fs-PC-base * 1.2);
+              margin-bottom: 20px;
+
+              @for $i from 1 through 5 {
+                &:nth-child(#{$i}) {
+                  animation-delay: 0.2s * $i + 0.5s;
+                }
+              }
+
+              & > a {
+                color: #444;
+                text-decoration: none;
+                cursor: pointer;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    & .my-name {
+      margin-top: 6%;
+
+      & .pc {
+        display: block;
+        position: relative;
+        z-index: 3;
+        font-size: 12vw;
+        color: $cGray;
+      }
+
+      & .sp {
+        display: none;
+      }
+    }
+  }
+
+  /* ===============================
+		section2 what can i do?
+  ================================= */
+  .what-can-i-do {
+    & .title {
+      margin-bottom: 10%;
+    }
+
+    & .flex-container {
+      flex-direction: row;
+
+      & .work-card-wrapper {
+        width: 30%;
+
+        @for $i from 1 through 3 {
+          &:nth-child(#{$i}) {
+            & .fadeIn {
+              animation-delay: 0.3s * $i - 0.3s;
+            }
+          }
+        }
+
+        @for $i from 1 through 3 {
+          &:nth-child(#{$i}) {
+            margin-top: $i * 5% - 5%;
+          }
+        }
+
+        & .work-num {
+          font-size: clamp(60px, 8rem, 8rem);
+        }
+        & .cover-slide {
+          & .slide-image {
+            .inview & {
+            }
+          }
+
+          & .my-work-card {
+            margin-bottom: 0;
+
+            & .char-box {
+              & .work-title {
+                font-size: clamp(25px, 3.2rem, 3.2rem);
+                margin-bottom: 5%;
+              }
+              & .description {
+                line-height: 1.8;
+                font-size: $fs-PC-base;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    & .strength {
+      width: 80%;
+      margin: 0 auto;
+      margin-top: 8%;
+
+      & .slide-image {
+        & .s-title {
+          font-size: calc($fs-PC-h1 * 1.4);
+        }
+
+        & .s-description {
+          font-size: $fs-PC-base;
+          line-height: 1.8;
+        }
+      }
+    }
+  }
+
+  /* ===============================
+		section3 My Creations
+  ================================= */
+  .mb {
+    margin-bottom: 10%;
+  }
+
+  .my-creations {
+    & .cover-slide {
+      & .flex-container {
+        flex-direction: row;
+
+        &.fd-reverse {
+          flex-direction: row-reverse;
+        }
+
+        .left-box {
+          width: 48%;
+          align-items: center;
+          margin-bottom: 0;
+        }
+
+        .right-box {
+          width: 48%;
+          min-height: 400px;
+          position: relative;
+
+          & .description-box {
+            position: absolute;
+            bottom: 0;
+
+            & .sub-title {
+              font-size: $fs-PC-h1;
+            }
+
+            & .description {
+              font-size: calc($fs-PC-base * 0.9);
+              line-height: 1.8;
+            }
+
+            & .language {
+              font-size: calc($fs-PC-base * 0.7);
+            }
+
+            & .creation-btn {
+              padding: 0;
+              text-align: left;
+              margin-top: 4%;
+
+              & button {
+                font-size: $fs-PC-btn;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    & .flex-container.fd-reverse {
+      & .left-box {
+        &::after {
+          left: -8%;
+        }
+      }
+    }
+    & .creation-more-btn {
+      & button {
+        & a {
+          font-size: clamp(18px, 2rem, 2rem);
+        }
+      }
+    }
+  }
+
+  /* ===============================
+		section4 about me
+  ================================= */
+  .about-me {
+    & .position-container {
+      & .name-title {
+        margin-top: 9%;
+        font-size: clamp(40px, 5.5rem, 5.5rem);
+      }
+
+      & .name-kanji {
+        top: -24%;
+        font-size: clamp(80px, 14rem, 14rem);
+      }
+
+      & .flex-container {
+        flex-direction: row;
+
+        & .left-box {
+          width: 30%;
+          margin: 0;
+
+          & .my-pic {
+            width: 35%;
+          }
+        }
+        & .right-box {
+          width: 70%;
+
+          & > p {
+            font-size: $fs-PC-base;
+            line-height: 1.8;
+          }
+        }
+      }
+    }
+  }
+
+  /* ===============================
+		section5 inquiry flow
+================================= */
+  .inquiry-flow {
+    & .flow-title {
+      text-align: center;
+      margin-bottom: 4%;
+      font-size: $fs-PC-h1;
+    }
+
+    & .flow-box {
+      height: 300px;
+      position: relative;
+
+      & .flow-card {
+        height: 300px;
+        width: 30%;
+        clip-path: polygon(0 0, 83% 0, 100% 50%, 83% 100%, 0 100%);
+        position: absolute;
+
+        & .wrapper {
+          padding: 30px 20px 0 30px;
+
+          & .flex-container {
+            justify-content: flex-start;
+            align-items: flex-end;
+          }
+        }
+
+        &:first-child {
+          top: 0;
+          left: 0;
+          z-index: 10;
+          background-color: #888;
+          padding-left: 2%;
+        }
+
+        &:nth-child(2) {
+          top: 0;
+          left: 24%;
+          z-index: 8;
+          background-color: #999;
+          width: 31%;
+          height: 300px;
+
+          & .wrapper {
+            margin-top: 0;
+            margin-left: 17%;
+            width: 66%;
+          }
+        }
+
+        &:nth-child(3) {
+          top: 0;
+          left: 49%;
+          z-index: 6;
+          background-color: #aaa;
+          width: 31%;
+          height: 300px;
+
+          & .wrapper {
+            margin-top: 0;
+            margin-left: 17%;
+            width: 66%;
+          }
+        }
+
+        &:nth-child(4) {
+          top: 0;
+          left: 74%;
+          z-index: 4;
+          background-color: #bbb;
+          clip-path: none;
+          width: 26%;
+          height: 300px;
+
+          & .wrapper {
+            margin-top: 0;
+            margin-left: 22%;
+            width: 78%;
+          }
+        }
+
+        & .wrapper {
+          width: 80%;
+
+          & .flex-container {
+            margin-bottom: 12%;
+
+            & .flow-num {
+              font-size: clamp(25px, 6rem, 6rem);
+              margin-right: 15px;
+            }
+            & .card-title {
+              font-size: calc($fs-PC-base * 0.95);
+              margin-bottom: 10%;
+            }
+          }
+          & .flow-description {
+            font-size: calc($fs-PC-base * 0.85);
+          }
+        }
+      }
+    }
+
+    & .flow-btn {
+      text-align: center;
+      margin: 5% 0 8%;
+
+      & button {
+        padding: 20px 40px;
+
+        & a {
+          text-decoration: none;
+          color: $cblack;
+        }
+      }
+    }
+  }
+
+  /* ===============================
+		page  Get in Touch with Me
+  ================================= */
+  .get-in-touch-with-me {
+    & .title {
+      &::after {
+        width: 55%;
+      }
+      &.left {
+        &::after {
+          left: 0;
+          margin-left: 45%;
+        }
+      }
+    }
+
+    & .flex-container {
+      flex-direction: row;
+
+      & .left-box {
+        width: 48%;
+
+        & .contact-img {
+          aspect-ratio: auto;
+          margin-bottom: 0;
+        }
+      }
+
+      & .right-box {
+        width: 48%;
+        position: relative;
+
+        & .form {
+          & .contact-heading {
+            & .contact-label {
+              font-size: calc($fs-PC-h1 * 0.8);
+
+              & .contact-span {
+                font-size: calc($fs-PC-base * 0.8);
+              }
+            }
+          }
+
+          & .contact-btn {
+            position: absolute;
+            bottom: 0;
+            font-size: calc($fs-PC-base * 0.8);
+          }
+        }
+      }
+    }
+  }
+
+  /* ===============================
+    page all of my creations
+  ================================= */
+  .all-of-my-creations {
+    & .title {
+      margin-top: 5%;
+      margin-bottom: 5%;
+
+      &::after {
+        width: 60%;
+      }
+
+      &.left {
+        &::after {
+          left: 0;
+          margin-left: 40%;
+        }
+      }
+    }
+
+    & .my-creation {
+      padding-bottom: 5%;
+      margin-bottom: 5%;
+
+      & .flex-container {
+        flex-direction: row;
+
+        & .left-box {
+          width: 40%;
+          & img {
+            width: 100%;
+            margin-bottom: 0;
+          }
+        }
+        & .right-box {
+          width: 56%;
+          position: relative;
+
+          & .creation-title {
+            font-size: calc($fs-PC-h1 * 0.9);
+          }
+          & .description {
+            font-size: $fs-PC-base;
+            line-height: 1.8;
+          }
+          & .language {
+            font-size: calc($fs-PC-base * 0.7);
+          }
+          & .creation-btn {
+            position: absolute;
+            bottom: 0;
+            & button {
+              font-size: $fs-PC-btn;
+            }
+          }
+        }
+      }
+    }
+  }
+}
