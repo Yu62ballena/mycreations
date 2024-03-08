@@ -1,0 +1,41 @@
+/* ===============================
+	fadeIn-animation 用CSS
+================================= */
+@use "mixin" as *;
+
+$pattern: (
+  "only-fadeIn": none,
+  "from-bottom": translateY(100px),
+  "from-upper": translateY(-100px),
+  "from-left": translateX(100px),
+  "from-right": translateX(-70px),
+);
+
+// $patternの値によってtransformの値を変える
+@each $key, $value in $pattern {
+  .#{$key} {
+    transform: $value;
+  }
+}
+
+
+
+.fadeIn {
+  opacity: 0;
+}
+
+@keyframes fadeIn-animation {
+  $key: null;
+  from {
+    opacity: 0;
+    transform: map-get($pattern, $key);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.fadeIn-animation {
+  @include animation($name: fadeIn-animation, $duration: 1.5s);
+}
