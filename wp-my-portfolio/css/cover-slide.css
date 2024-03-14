@@ -1,0 +1,169 @@
+@charset "UTF-8";
+/* ===============================
+		cover-slide用CSS
+================================= */
+.slide-image {
+  opacity: 0;
+  vertical-align: bottom;
+}
+.inview .slide-image {
+  opacity: 1;
+  animation-name: img-show;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+}
+
+.cover-slide {
+  position: relative;
+}
+.cover-slide.sfrom-upper::after {
+  content: "";
+  position: absolute;
+  z-index: 20;
+  background-color: white;
+  top: 0;
+  right: 0;
+  bottom: 100%;
+  left: 0;
+}
+.cover-slide.sfrom-upper.inview::after {
+  animation-name: from-upper;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+}
+.cover-slide.sfrom-right::after {
+  content: "";
+  position: absolute;
+  z-index: 20;
+  background-color: white;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 100%;
+}
+.cover-slide.sfrom-right.inview::after {
+  animation-name: from-right;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+}
+.cover-slide.sfrom-bottom::after {
+  content: "";
+  position: absolute;
+  z-index: 20;
+  background-color: white;
+  top: 100%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.cover-slide.sfrom-bottom.inview::after {
+  animation-name: from-bottom;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+}
+.cover-slide.sfrom-left::after {
+  content: "";
+  position: absolute;
+  z-index: 20;
+  background-color: white;
+  top: 0;
+  right: 100%;
+  bottom: 0;
+  left: 0;
+}
+.cover-slide.sfrom-left.inview::after {
+  animation-name: from-left;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+}
+
+@keyframes from-upper {
+  0% {
+    top: 0;
+    bottom: 100%;
+  }
+  50% {
+    top: 0;
+    bottom: 0;
+  }
+  100% {
+    top: 100%;
+    bottom: 0;
+  }
+}
+@keyframes from-right {
+  0% {
+    right: 0;
+    left: 100%;
+  }
+  50% {
+    right: 0;
+    left: 0;
+  }
+  100% {
+    right: 100%;
+    left: 0;
+  }
+}
+@keyframes from-bottom {
+  0% {
+    bottom: 0;
+    top: 100%;
+  }
+  50% {
+    bottom: 0;
+    top: 0;
+  }
+  100% {
+    bottom: 100%;
+    top: 0;
+  }
+}
+@keyframes from-left {
+  0% {
+    left: 0;
+    right: 100%;
+  }
+  50% {
+    left: 0;
+    right: 0;
+  }
+  100% {
+    left: 100%;
+    right: 0;
+  }
+}
+@keyframes img-show {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  50.1% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}/*# sourceMappingURL=cover-slide.css.map */
