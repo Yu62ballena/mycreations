@@ -1,0 +1,1268 @@
+@charset "UTF-8";
+/* ===============================
+		変数
+================================= */
+/* ===============================
+		basic
+================================= */
+html {
+  font-size: 6vw;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  color: #444;
+  font-family: serif;
+  overscroll-behavior: none;
+}
+body.hidden {
+  overflow: hidden;
+}
+body .whole-container {
+  padding: 0 2%;
+}
+
+/* ===============================
+		一時テスト用
+================================= */
+.border {
+  border: 1px solid red;
+}
+
+/* ===============================
+		共通
+================================= */
+.container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.title {
+  font-family: serif;
+  font-size: clamp(26px, 1.2rem, 38px);
+  margin-top: 22%;
+  margin-bottom: 6%;
+  position: relative;
+}
+.title::after {
+  position: absolute;
+  content: "";
+  top: 50%;
+  width: 40%;
+  height: 1px;
+  background-color: #333;
+}
+.title.left::after {
+  left: 0;
+  margin-left: 60%;
+}
+.title.right {
+  text-align: right;
+}
+.title.right::after {
+  right: 0;
+  margin-right: 60%;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 0;
+  animation-delay: 0.4s;
+}
+.header .logo-link {
+  text-decoration: none;
+  color: #333;
+}
+.header .logo-link .site-title-group {
+  text-align: center;
+}
+.header .logo-link .site-title-group .site-title {
+  font-size: clamp(18px, 0.7rem, 0.7rem);
+}
+.header .logo-link .site-title-group .sub-title {
+  font-size: calc(clamp(18px, 0.7rem, 0.7rem) * 0.55);
+}
+
+.menu-btn {
+  position: absolute;
+  top: 5px;
+  right: 0;
+  background-color: transparent;
+  z-index: 9999;
+  animation-delay: 0.4s;
+}
+.menu-btn .hamburger-btn {
+  position: relative;
+  background-color: transparent;
+  display: flex;
+  cursor: pointer;
+  width: 100px;
+  height: 80px;
+  border-radius: 5px;
+}
+.menu-btn .hamburger-btn span {
+  display: inline-block;
+  transition: all 0.3s;
+  position: absolute;
+  right: 14px;
+  height: 1.5px;
+  border-radius: 2px;
+  background-color: #333;
+}
+.menu-btn .hamburger-btn span:nth-of-type(1) {
+  top: 15px;
+  width: 60%;
+}
+.menu-btn .hamburger-btn span:nth-of-type(2) {
+  top: 30px;
+  width: 40%;
+}
+.menu-btn .hamburger-btn span:nth-of-type(3) {
+  top: 45px;
+  width: 30%;
+}
+.menu-btn .hamburger-btn.menu-active {
+  z-index: 121;
+  background-color: transparent;
+}
+.menu-btn .hamburger-btn.menu-active span {
+  background-color: #fff;
+  z-index: 30;
+}
+.menu-btn .hamburger-btn.menu-active span:nth-of-type(1) {
+  top: 18px;
+  right: 18px;
+  transform: translateY(6px) rotate(-135deg);
+  width: 40%;
+}
+.menu-btn .hamburger-btn.menu-active span:nth-of-type(2) {
+  opacity: 0;
+}
+.menu-btn .hamburger-btn.menu-active span:nth-of-type(3) {
+  top: 30px;
+  right: 18px;
+  transform: translateY(-6px) rotate(135deg);
+  width: 40%;
+}
+
+.slide-menu {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  z-index: 300;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateX(100%);
+  transition: transform 0.3s;
+}
+.slide-menu.menu-active {
+  transform: none;
+}
+.slide-menu .slide-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  position: relative;
+  left: 20px;
+}
+.slide-menu .slide-nav .slide-item {
+  list-style: none;
+  font-size: calc(clamp(14px, 0.7rem, 0.7rem) * 1.3);
+  position: relative;
+}
+.slide-menu .slide-nav .slide-item::before {
+  position: absolute;
+  content: "";
+  height: 1px;
+  width: 30px;
+  background-color: #fff;
+  top: 50%;
+  left: -40px;
+}
+.slide-menu .slide-nav .slide-item .slide-link {
+  color: #fff;
+  text-decoration: none;
+}
+
+.sticky-container {
+  width: 100%;
+  max-width: 1152px;
+  position: fixed;
+  top: 0;
+}
+.sticky-container > .container {
+  width: 100%;
+  position: relative;
+}
+
+.footer {
+  background-color: #333;
+  text-align: center;
+  padding: 8% 0;
+}
+.footer .description {
+  color: white;
+  font-size: 14px;
+}
+
+.btn-wrap {
+  padding: 0;
+  margin: 0;
+  border: none;
+  background-color: white;
+}
+
+.btn,
+a.btn,
+button.btn {
+  font-size: calc(clamp(16px, 0.6rem, 0.6rem) * 0.8);
+  font-weight: 700;
+  line-height: 1.5;
+  position: relative;
+  display: inline-block;
+  padding: 1rem 4rem;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  transition: all 0.4s;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  color: #666;
+  border-radius: 0.5rem;
+}
+@media screen and (min-width: 768px) {
+  .btn,
+  a.btn,
+  button.btn {
+    font-size: clamp(16px, 1.6rem, 1.6rem);
+  }
+}
+
+.creation-btn .btn-wrap a.btn-svg,
+.to-other-btn .btn-wrap a.btn-svg {
+  font-weight: 700;
+  line-height: 54px;
+  width: 204px;
+  height: 54px;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: none;
+  background-color: transparent;
+}
+.creation-btn .btn-wrap a.btn-svg svg,
+.to-other-btn .btn-wrap a.btn-svg svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.creation-btn .btn-wrap a.btn-svg svg rect,
+.to-other-btn .btn-wrap a.btn-svg svg rect {
+  transition: all 500ms ease;
+  stroke: #666;
+  stroke-width: 2;
+  stroke-dasharray: 200px, 16px;
+  stroke-dashoffset: 70px;
+}
+.creation-btn .btn-wrap a.btn-svg:hover svg rect,
+.to-other-btn .btn-wrap a.btn-svg:hover svg rect {
+  stroke-dashoffset: 284px;
+}
+.creation-btn .btn-wrap a.btn-svg span,
+.to-other-btn .btn-wrap a.btn-svg span {
+  color: #666;
+}
+
+.to-other-btn {
+  text-align: center;
+  margin: 5% 0 8%;
+  padding: 5px 20px;
+  font-size: calc(clamp(16px, 0.6rem, 0.6rem) * 0.8);
+}
+
+.creation-btn-wrapper {
+  text-align: center;
+  margin-top: 70px;
+}
+.creation-btn-wrapper .each-creation-btn {
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+  border: none;
+  position: relative;
+}
+.creation-btn-wrapper .each-creation-btn:hover {
+  animation-name: creation-btn;
+  animation-duration: 0.3s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+}
+.creation-btn-wrapper .each-creation-btn > a {
+  padding: 5px 30px;
+  text-decoration: none;
+  color: #333;
+  border-bottom: 1px solid #333;
+  font-size: clamp(16px, 0.6rem, 0.6rem);
+  font-weight: 300;
+}
+.creation-btn-wrapper .each-creation-btn > span {
+  position: absolute;
+  content: "";
+  height: 1px;
+  width: 10px;
+  background-color: #333;
+  bottom: -2px;
+  right: -1px;
+  transform: rotate(45deg);
+}
+
+@keyframes creation-btn {
+  0%, 100% {
+    scale: 1;
+  }
+  50% {
+    scale: 1.2;
+  }
+}
+/* ===============================
+		section1 first-view
+================================= */
+.first-view .container {
+  position: relative;
+}
+.first-view .container .main-view {
+  height: 75vh;
+  position: relative;
+  width: 100%;
+  z-index: 100;
+}
+.first-view .container .main-view .catch-copy {
+  font-size: clamp(40px, 1.8rem, 1.8rem);
+  position: absolute;
+  top: 40%;
+  left: 15%;
+  z-index: -1;
+}
+.first-view .container .main-view .main-img1 {
+  position: absolute;
+  left: 30%;
+  top: 10%;
+  width: 65%;
+  animation-delay: 0.3s;
+  z-index: -3;
+  margin-right: 20px;
+}
+.first-view .container .main-view .main-img1 > img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.first-view .container .main-view .main-img2 {
+  position: absolute;
+  left: 12%;
+  top: 60%;
+  width: 40%;
+  animation-delay: 0.6s;
+  z-index: -2;
+  margin-left: 20px;
+}
+.first-view .container .main-view .main-img2 > img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.first-view .container .main-view .main-nav {
+  display: none;
+}
+.first-view .my-name {
+  width: 96vw;
+  text-align: center;
+  position: relative;
+  z-index: 100;
+}
+.first-view .my-name .pc {
+  display: none;
+  mix-blend-mode: overlay;
+}
+.first-view .my-name .sp {
+  font-size: 28vw;
+  color: #eeeeee;
+  mix-blend-mode: overlay;
+}
+
+/* ===============================
+		section2  what can i do?
+================================= */
+.what-can-i-do .title {
+  margin-bottom: 20%;
+}
+.what-can-i-do .flex-container {
+  flex-direction: column;
+}
+.what-can-i-do .flex-container .work-card-wrapper {
+  position: relative;
+}
+.what-can-i-do .flex-container .work-card-wrapper .work-num {
+  position: absolute;
+  top: -7%;
+  left: 5%;
+  z-index: 22;
+  font-size: clamp(40px, 2.8rem, 2.8rem);
+}
+.what-can-i-do .flex-container .work-card-wrapper .cover-slide .my-work-card {
+  width: 100%;
+  margin-bottom: 20%;
+  z-index: -3;
+  position: relative;
+}
+.what-can-i-do .flex-container .work-card-wrapper .cover-slide .my-work-card .img-card {
+  width: 100%;
+  position: relative;
+}
+.what-can-i-do .flex-container .work-card-wrapper .cover-slide .my-work-card .img-card .work-img {
+  width: 100%;
+}
+.what-can-i-do .flex-container .work-card-wrapper .cover-slide .my-work-card .char-box {
+  padding: 0 5%;
+}
+.what-can-i-do .flex-container .work-card-wrapper .cover-slide .my-work-card .char-box .work-title {
+  font-family: serif;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  font-size: calc(clamp(18px, 0.7rem, 0.7rem) * 1.05);
+}
+.what-can-i-do .flex-container .work-card-wrapper .cover-slide .my-work-card .char-box .description {
+  line-height: 1.6;
+  font-size: calc(clamp(18px, 0.7rem, 0.7rem) * 0.95);
+}
+.what-can-i-do .strength {
+  width: 100%;
+  margin-top: 5%;
+}
+.what-can-i-do .strength .slide-image .s-title {
+  font-size: clamp(26px, 1.2rem, 38px);
+}
+.what-can-i-do .strength .slide-image .s-description {
+  margin-top: 3%;
+  line-height: 1.6;
+  font-size: clamp(14px, 0.7rem, 0.7rem);
+  padding: 0 5%;
+}
+
+/* ===============================
+		section3 My Creations
+================================= */
+.mb {
+  margin-bottom: 20%;
+}
+
+.my-creations .cover-slide .flex-container {
+  flex-direction: column;
+}
+.my-creations .cover-slide .flex-container .left-box {
+  width: 100%;
+  align-items: center;
+  position: relative;
+  margin-bottom: 10%;
+}
+.my-creations .cover-slide .flex-container .left-box::after {
+  content: "";
+  position: absolute;
+  top: 10%;
+  left: 8%;
+  width: 100%;
+  height: 95%;
+  z-index: -1;
+  background-color: #eeeeee;
+}
+.my-creations .cover-slide .flex-container .left-box .creation {
+  width: 100%;
+}
+.my-creations .cover-slide .flex-container .right-box {
+  width: 100%;
+}
+.my-creations .cover-slide .flex-container .right-box .description-box .sub-title {
+  position: relative;
+  z-index: 22;
+  font-size: calc(clamp(18px, 0.7rem, 0.7rem) * 1.05);
+  margin-bottom: 6%;
+}
+.my-creations .cover-slide .flex-container .right-box .description-box .description {
+  font-size: calc(clamp(18px, 0.7rem, 0.7rem) * 0.95);
+  line-height: 1.6;
+}
+.my-creations .cover-slide .flex-container .right-box .description-box .language {
+  font-size: 14px;
+  margin-top: 6%;
+  margin-bottom: 5%;
+}
+.my-creations .cover-slide .flex-container .right-box .description-box .creation-btn-wrapper {
+  text-align: center;
+}
+.my-creations .cover-slide .flex-container .right-box .description-box .creation-btn-wrapper .each-creation-btn > a {
+  font-size: clamp(16px, 0.6rem, 0.6rem);
+}
+.my-creations .creation-more-btn {
+  text-align: center;
+}
+.my-creations .creation-more-btn button {
+  padding: 10px 20px;
+}
+.my-creations .creation-more-btn button a {
+  text-decoration: none;
+  font-size: clamp(16px, 0.6rem, 0.6rem);
+  color: #333;
+}
+
+/* ===============================
+		section4 about me
+================================= */
+.about-me .position-container {
+  position: relative;
+}
+.about-me .position-container .name-title {
+  margin-top: 20%;
+  font-size: 1.6rem;
+  animation-delay: 0.6s;
+}
+.about-me .position-container .name-kanji {
+  position: absolute;
+  top: -11%;
+  left: 3%;
+  color: #eeeeee;
+  font-size: 3.5rem;
+  z-index: -1;
+  animation-delay: 0.4s;
+}
+.about-me .position-container .flex-container {
+  flex-direction: column;
+}
+.about-me .position-container .flex-container .left-box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15%;
+  margin-bottom: 10%;
+}
+.about-me .position-container .flex-container .left-box .my-pic {
+  width: 40%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  animation-delay: 0.7s;
+}
+.about-me .position-container .flex-container .right-box {
+  width: 100%;
+  margin-top: 5%;
+  animation-delay: 0.9s;
+}
+.about-me .position-container .flex-container .right-box > p {
+  font-size: clamp(14px, 0.7rem, 0.7rem);
+  line-height: 1.6;
+}
+
+/* ===============================
+		section5 inquiry flow
+================================= */
+.inquiry-flow .flow-title {
+  text-align: center;
+  margin-top: 10%;
+  margin-bottom: 12%;
+  font-size: calc(clamp(26px, 1.2rem, 38px) * 0.85);
+  animation-delay: 0.2s;
+}
+.inquiry-flow .flow-box {
+  height: 1080px;
+  position: relative;
+  animation-delay: 0.4s;
+}
+.inquiry-flow .flow-box .flow-card {
+  height: 280px;
+  width: 100%;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 83%, 50% 95%, 0 83%);
+          clip-path: polygon(0 0, 100% 0, 100% 83%, 50% 95%, 0 83%);
+  position: absolute;
+}
+.inquiry-flow .flow-box .flow-card .wrapper {
+  width: 100%;
+  padding: 5% 20px 0;
+}
+.inquiry-flow .flow-box .flow-card .wrapper .flex-container {
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+.inquiry-flow .flow-box .flow-card:first-child {
+  top: 0;
+  left: 0;
+  z-index: 10;
+  background-color: #888;
+}
+.inquiry-flow .flow-box .flow-card:nth-child(2) {
+  top: 20%;
+  left: 0;
+  z-index: 8;
+  height: 320px;
+  width: 100%;
+  background-color: #999;
+}
+.inquiry-flow .flow-box .flow-card:nth-child(2) .wrapper {
+  margin-top: 8%;
+  width: 100%;
+}
+.inquiry-flow .flow-box .flow-card:nth-child(3) {
+  top: 480px;
+  left: 0;
+  z-index: 6;
+  background-color: #aaa;
+  width: 100%;
+  height: 320px;
+}
+.inquiry-flow .flow-box .flow-card:nth-child(3) .wrapper {
+  margin-top: 8%;
+  width: 100%;
+}
+.inquiry-flow .flow-box .flow-card:nth-child(4) {
+  top: 736px;
+  left: 0;
+  z-index: 4;
+  background-color: #bbb;
+  -webkit-clip-path: none;
+          clip-path: none;
+  width: 100%;
+  height: 320px;
+}
+.inquiry-flow .flow-box .flow-card:nth-child(4) .wrapper {
+  margin-top: 10%;
+  width: 100%;
+}
+.inquiry-flow .flow-box .flow-card .wrapper .flex-container {
+  margin-bottom: 8%;
+}
+.inquiry-flow .flow-box .flow-card .wrapper .flex-container .flow-num {
+  font-size: calc(clamp(26px, 1.2rem, 38px) * 1.4);
+  margin-right: 15px;
+}
+.inquiry-flow .flow-box .flow-card .wrapper .flex-container .card-title {
+  font-size: clamp(20px, 0.6rem, 24px);
+}
+.inquiry-flow .flow-box .flow-card .wrapper .flow-description {
+  font-size: clamp(18px, 0.7rem, 20px);
+}
+.inquiry-flow .flow-btn {
+  text-align: center;
+  margin: 5% 0 8%;
+}
+.inquiry-flow .flow-btn button {
+  padding: 20px 40px;
+}
+.inquiry-flow .flow-btn button a {
+  text-decoration: none;
+  color: #333;
+}
+
+/* ===============================
+		page  Get in Touch with Me
+================================= */
+.get-in-touch-with-me {
+  margin: 0 auto 5%;
+}
+.get-in-touch-with-me .title {
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+.get-in-touch-with-me .title::after {
+  width: 15%;
+}
+.get-in-touch-with-me .title.left::after {
+  left: 0;
+  margin-left: 85%;
+}
+.get-in-touch-with-me .flex-container {
+  justify-content: space-between;
+  flex-direction: column;
+}
+.get-in-touch-with-me .flex-container .left-box {
+  width: 100%;
+}
+.get-in-touch-with-me .flex-container .left-box .contact-img {
+  width: 100%;
+  aspect-ratio: 3/2;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-bottom: 10%;
+}
+.get-in-touch-with-me .flex-container .right-box {
+  width: 100%;
+}
+.get-in-touch-with-me .flex-container .right-box .form .contact-heading {
+  margin-bottom: 2%;
+}
+.get-in-touch-with-me .flex-container .right-box .form .contact-heading .contact-label {
+  font-size: clamp(14px, 0.7rem, 0.7rem);
+}
+.get-in-touch-with-me .flex-container .right-box .form .contact-heading .contact-label .contact-span {
+  background-color: #888;
+  color: #fff;
+  padding: 2px 5px;
+  font-size: 0.5rem;
+  margin-left: 15px;
+}
+.get-in-touch-with-me .flex-container .right-box .form .input-area {
+  margin-bottom: 10%;
+}
+.get-in-touch-with-me .flex-container .right-box .form .input-area .contact-textbox {
+  width: 100%;
+  height: 50px;
+  padding-left: 10px;
+}
+.get-in-touch-with-me .flex-container .right-box .form .input-area .contact-textarea {
+  width: 100%;
+  height: 300px;
+  margin-bottom: 10px;
+  padding-left: 10px;
+}
+.get-in-touch-with-me .flex-container .right-box .form .contact-btn {
+  border: none;
+  background-color: #888;
+  color: #fff;
+  padding: 10px 50px;
+  font-size: clamp(16px, 0.6rem, 0.6rem);
+}
+
+/* ===============================
+		page All of My Creations
+================================= */
+.all-of-my-creations .title {
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+.all-of-my-creations .title::after {
+  width: 27%;
+}
+.all-of-my-creations .title.left::after {
+  left: 0;
+  margin-left: 73%;
+}
+.all-of-my-creations .my-creation {
+  padding-bottom: 8%;
+  margin-bottom: 5%;
+  border-bottom: 1px solid #888;
+}
+.all-of-my-creations .my-creation .flex-container {
+  display: flex;
+  flex-direction: column;
+}
+.all-of-my-creations .my-creation .flex-container .left-box {
+  width: 100%;
+}
+.all-of-my-creations .my-creation .flex-container .left-box img {
+  width: 100%;
+  margin-bottom: 5%;
+}
+.all-of-my-creations .my-creation .flex-container .right-box {
+  width: 100%;
+}
+.all-of-my-creations .my-creation .flex-container .right-box .creation-title {
+  margin-bottom: 5%;
+  font-size: calc(clamp(18px, 0.7rem, 0.7rem) * 0.9);
+}
+.all-of-my-creations .my-creation .flex-container .right-box .description {
+  font-size: calc(clamp(14px, 0.7rem, 0.7rem) * 0.8);
+  line-height: 1.6;
+}
+.all-of-my-creations .my-creation .flex-container .right-box .language {
+  font-size: 14px;
+  margin-top: 5%;
+}
+.all-of-my-creations .my-creation .flex-container .right-box .creation-btn {
+  margin-top: 5%;
+  text-align: center;
+}
+.all-of-my-creations .my-creation .flex-container .right-box .creation-btn button {
+  font-size: calc(clamp(16px, 0.6rem, 0.6rem) * 0.8);
+}
+
+/* ===============================
+		PCサイト用
+================================= */
+@media screen and (min-width: 768px) {
+  /* ===============================
+  		basic
+  ================================= */
+  html {
+    font-size: 0.65vw;
+  }
+  body {
+    font-size: clamp(20px, 2rem, 2rem);
+  }
+  /* ===============================
+  共通
+  ================================= */
+  .container {
+    max-width: 1152px;
+  }
+  .title {
+    font-size: clamp(30px, 5rem, 5rem);
+    margin-top: 12%;
+    margin-bottom: 5%;
+  }
+  .title::after {
+    width: 60%;
+  }
+  .title.left::after {
+    margin-left: 40%;
+  }
+  .title.right::after {
+    margin-right: 40%;
+  }
+  .header .logo-link .site-title-group .site-title {
+    font-size: clamp(25px, 3rem, 3rem);
+  }
+  .header .logo-link .site-title-group .sub-title {
+    font-size: calc(clamp(25px, 3rem, 3rem) * 0.5);
+  }
+  .footer .description {
+    font-size: 14px;
+  }
+  .slide-container {
+    position: relative;
+    z-index: 300;
+  }
+  .slide-menu .slide-nav {
+    left: 40px;
+  }
+  .slide-menu .slide-nav .slide-item {
+    font-size: calc(clamp(20px, 2rem, 2rem) * 1.5);
+  }
+  /* ===============================
+  section1 first-view
+  ================================= */
+  .first-view .container .main-view {
+    height: 100vh;
+  }
+  .first-view .container .main-view .catch-copy {
+    font-size: clamp(60px, 8rem, 8rem);
+    top: 25%;
+    left: 25%;
+  }
+  .first-view .container .main-view .main-img1 {
+    left: 52%;
+    top: 10%;
+    width: 45%;
+  }
+  .first-view .container .main-view .main-img2 {
+    left: 24%;
+    top: 60%;
+    width: 25%;
+  }
+  .first-view .container .main-view .main-nav {
+    display: block;
+    position: absolute;
+    left: 3%;
+    bottom: 20%;
+  }
+  .first-view .container .main-view .main-nav .menu-list .list-item {
+    font-size: calc(clamp(20px, 2rem, 2rem) * 1.2);
+    margin-bottom: 20px;
+  }
+  .first-view .container .main-view .main-nav .menu-list .list-item:nth-child(1) {
+    animation-delay: 0.7s;
+  }
+  .first-view .container .main-view .main-nav .menu-list .list-item:nth-child(2) {
+    animation-delay: 0.9s;
+  }
+  .first-view .container .main-view .main-nav .menu-list .list-item:nth-child(3) {
+    animation-delay: 1.1s;
+  }
+  .first-view .container .main-view .main-nav .menu-list .list-item:nth-child(4) {
+    animation-delay: 1.3s;
+  }
+  .first-view .container .main-view .main-nav .menu-list .list-item:nth-child(5) {
+    animation-delay: 1.5s;
+  }
+  .first-view .container .main-view .main-nav .menu-list .list-item > a {
+    color: #444;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .first-view .my-name .pc {
+    display: block;
+    position: relative;
+    z-index: -1;
+    font-size: 12vw;
+    color: #eeeeee;
+  }
+  .first-view .my-name .sp {
+    display: none;
+  }
+  /* ===============================
+  section2 what can i do?
+  ================================= */
+  .what-can-i-do .title {
+    margin-bottom: 10%;
+  }
+  .what-can-i-do .flex-container {
+    flex-direction: row;
+  }
+  .what-can-i-do .flex-container .work-card-wrapper {
+    width: 30%;
+  }
+  .what-can-i-do .flex-container .work-card-wrapper:nth-child(1) .fadeIn {
+    animation-delay: 0s;
+  }
+  .what-can-i-do .flex-container .work-card-wrapper:nth-child(2) .fadeIn {
+    animation-delay: 0.3s;
+  }
+  .what-can-i-do .flex-container .work-card-wrapper:nth-child(3) .fadeIn {
+    animation-delay: 0.6s;
+  }
+  .what-can-i-do .flex-container .work-card-wrapper:nth-child(1) {
+    margin-top: 0%;
+  }
+  .what-can-i-do .flex-container .work-card-wrapper:nth-child(2) {
+    margin-top: 5%;
+  }
+  .what-can-i-do .flex-container .work-card-wrapper:nth-child(3) {
+    margin-top: 10%;
+  }
+  .what-can-i-do .flex-container .work-card-wrapper .work-num {
+    font-size: clamp(60px, 8rem, 8rem);
+  }
+  .what-can-i-do .flex-container .work-card-wrapper .cover-slide .my-work-card {
+    margin-bottom: 0;
+  }
+  .what-can-i-do .flex-container .work-card-wrapper .cover-slide .my-work-card .img-card {
+    width: 100%;
+    height: auto;
+  }
+  .what-can-i-do .flex-container .work-card-wrapper .cover-slide .my-work-card .img-card > img {
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .what-can-i-do .flex-container .work-card-wrapper .cover-slide .my-work-card .char-box .work-title {
+    font-size: clamp(25px, 3.2rem, 3.2rem);
+    margin-bottom: 5%;
+  }
+  .what-can-i-do .flex-container .work-card-wrapper .cover-slide .my-work-card .char-box .description {
+    line-height: 1.8;
+    font-size: clamp(20px, 2rem, 2rem);
+  }
+  .what-can-i-do .strength {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 8%;
+  }
+  .what-can-i-do .strength .slide-image .s-title {
+    font-size: calc(clamp(25px, 3rem, 3rem) * 1.4);
+  }
+  .what-can-i-do .strength .slide-image .s-description {
+    font-size: clamp(20px, 2rem, 2rem);
+    line-height: 1.8;
+  }
+  /* ===============================
+  section3 My Creations
+  ================================= */
+  .mb {
+    margin-bottom: 10%;
+  }
+  .my-creations .title::after {
+    width: 65%;
+  }
+  .my-creations .title.right::after {
+    margin-right: 35%;
+  }
+  .my-creations .cover-slide .flex-container {
+    flex-direction: row;
+  }
+  .my-creations .cover-slide .flex-container.fd-reverse {
+    flex-direction: row-reverse;
+  }
+  .my-creations .cover-slide .flex-container .left-box {
+    width: 48%;
+    align-items: center;
+    margin-bottom: 0;
+  }
+  .my-creations .cover-slide .flex-container .right-box {
+    width: 48%;
+    min-height: 400px;
+    position: relative;
+  }
+  .my-creations .cover-slide .flex-container .right-box .description-box {
+    position: absolute;
+    bottom: 0;
+  }
+  .my-creations .cover-slide .flex-container .right-box .description-box .sub-title {
+    font-size: clamp(25px, 3rem, 3rem);
+    animation-delay: 0.9s;
+  }
+  .my-creations .cover-slide .flex-container .right-box .description-box .description {
+    font-size: calc(clamp(20px, 2rem, 2rem) * 0.9);
+    line-height: 1.8;
+  }
+  .my-creations .cover-slide .flex-container .right-box .description-box .language {
+    font-size: calc(clamp(20px, 2rem, 2rem) * 0.7);
+  }
+  .my-creations .cover-slide .flex-container .right-box .description-box .creation-btn-wrapper {
+    text-align: left;
+  }
+  .my-creations .cover-slide .flex-container .right-box .description-box .creation-btn-wrapper .each-creation-btn a {
+    font-size: clamp(16px, 1.6rem, 1.6rem);
+  }
+  .my-creations .flex-container.fd-reverse .left-box::after {
+    left: -8%;
+  }
+  .my-creations .creation-more-btn button a {
+    font-size: clamp(18px, 2rem, 2rem);
+  }
+  /* ===============================
+  section4 about me
+  ================================= */
+  .about-me .title::after {
+    width: 75%;
+  }
+  .about-me .title.left::after {
+    margin-left: 25%;
+  }
+  .about-me .position-container .name-title {
+    margin-top: 9%;
+    font-size: clamp(40px, 5.5rem, 5.5rem);
+  }
+  .about-me .position-container .name-kanji {
+    top: -24%;
+    font-size: clamp(80px, 14rem, 14rem);
+  }
+  .about-me .position-container .flex-container {
+    flex-direction: row;
+  }
+  .about-me .position-container .flex-container .left-box {
+    width: 30%;
+    margin: 0;
+  }
+  .about-me .position-container .flex-container .left-box .my-pic {
+    width: 35%;
+  }
+  .about-me .position-container .flex-container .right-box {
+    width: 70%;
+  }
+  .about-me .position-container .flex-container .right-box > p {
+    font-size: clamp(20px, 2rem, 2rem);
+    line-height: 1.8;
+  }
+  /* ===============================
+  		section5 inquiry flow
+  ================================= */
+  .inquiry-flow .title::after {
+    width: 66%;
+  }
+  .inquiry-flow .title.right::after {
+    margin-right: 34%;
+  }
+  .inquiry-flow .flow-title {
+    text-align: center;
+    margin-bottom: 4%;
+    font-size: clamp(25px, 3rem, 3rem);
+  }
+  .inquiry-flow .flow-box {
+    height: 300px;
+    position: relative;
+  }
+  .inquiry-flow .flow-box .flow-card {
+    height: 300px;
+    width: 30%;
+    -webkit-clip-path: polygon(0 0, 83% 0, 100% 50%, 83% 100%, 0 100%);
+            clip-path: polygon(0 0, 83% 0, 100% 50%, 83% 100%, 0 100%);
+    position: absolute;
+  }
+  .inquiry-flow .flow-box .flow-card .wrapper {
+    padding: 30px 20px 0 30px;
+  }
+  .inquiry-flow .flow-box .flow-card .wrapper .flex-container {
+    justify-content: flex-start;
+    align-items: flex-end;
+  }
+  .inquiry-flow .flow-box .flow-card:first-child {
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background-color: #888;
+    padding-left: 2%;
+  }
+  .inquiry-flow .flow-box .flow-card:nth-child(2) {
+    top: 0;
+    left: 24%;
+    z-index: 8;
+    background-color: #999;
+    width: 31%;
+    height: 300px;
+  }
+  .inquiry-flow .flow-box .flow-card:nth-child(2) .wrapper {
+    margin-top: 0;
+    margin-left: 17%;
+    width: 66%;
+  }
+  .inquiry-flow .flow-box .flow-card:nth-child(3) {
+    top: 0;
+    left: 49%;
+    z-index: 6;
+    background-color: #aaa;
+    width: 31%;
+    height: 300px;
+  }
+  .inquiry-flow .flow-box .flow-card:nth-child(3) .wrapper {
+    margin-top: 0;
+    margin-left: 17%;
+    width: 66%;
+  }
+  .inquiry-flow .flow-box .flow-card:nth-child(4) {
+    top: 0;
+    left: 74%;
+    z-index: 4;
+    background-color: #bbb;
+    -webkit-clip-path: none;
+            clip-path: none;
+    width: 26%;
+    height: 300px;
+  }
+  .inquiry-flow .flow-box .flow-card:nth-child(4) .wrapper {
+    margin-top: 0;
+    margin-left: 22%;
+    width: 78%;
+  }
+  .inquiry-flow .flow-box .flow-card .wrapper {
+    width: 80%;
+  }
+  .inquiry-flow .flow-box .flow-card .wrapper .flex-container {
+    margin-bottom: 12%;
+  }
+  .inquiry-flow .flow-box .flow-card .wrapper .flex-container .flow-num {
+    font-size: clamp(25px, 6rem, 6rem);
+    margin-right: 15px;
+  }
+  .inquiry-flow .flow-box .flow-card .wrapper .flex-container .card-title {
+    font-size: calc(clamp(20px, 2rem, 2rem) * 0.95);
+    margin-bottom: 10%;
+  }
+  .inquiry-flow .flow-box .flow-card .wrapper .flow-description {
+    font-size: calc(clamp(20px, 2rem, 2rem) * 0.85);
+  }
+  .inquiry-flow .flow-btn {
+    text-align: center;
+    margin: 5% 0 8%;
+  }
+  .inquiry-flow .flow-btn button {
+    padding: 20px 40px;
+  }
+  .inquiry-flow .flow-btn button a {
+    text-decoration: none;
+    color: #333;
+  }
+  /* ===============================
+  page  Get in Touch with Me
+  ================================= */
+  .get-in-touch-with-me .title::after {
+    width: 45%;
+  }
+  .get-in-touch-with-me .title.left::after {
+    left: 0;
+    margin-left: 55%;
+  }
+  .get-in-touch-with-me .flex-container {
+    flex-direction: row;
+  }
+  .get-in-touch-with-me .flex-container .left-box {
+    width: 48%;
+  }
+  .get-in-touch-with-me .flex-container .left-box .contact-img {
+    aspect-ratio: auto;
+    margin-bottom: 0;
+  }
+  .get-in-touch-with-me .flex-container .right-box {
+    width: 48%;
+    position: relative;
+  }
+  .get-in-touch-with-me .flex-container .right-box .form .contact-heading .contact-label {
+    font-size: calc(clamp(25px, 3rem, 3rem) * 0.8);
+  }
+  .get-in-touch-with-me .flex-container .right-box .form .contact-heading .contact-label .contact-span {
+    font-size: calc(clamp(20px, 2rem, 2rem) * 0.8);
+  }
+  .get-in-touch-with-me .flex-container .right-box .form .contact-btn {
+    position: absolute;
+    bottom: 0;
+    font-size: calc(clamp(20px, 2rem, 2rem) * 0.8);
+  }
+  /* ===============================
+    page all of my creations
+  ================================= */
+  .all-of-my-creations .title {
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
+  .all-of-my-creations .title::after {
+    width: 52%;
+  }
+  .all-of-my-creations .title.left::after {
+    left: 0;
+    margin-left: 48%;
+  }
+  .all-of-my-creations .my-creation {
+    padding-bottom: 5%;
+    margin-bottom: 5%;
+  }
+  .all-of-my-creations .my-creation .flex-container {
+    flex-direction: row;
+  }
+  .all-of-my-creations .my-creation .flex-container .left-box {
+    width: 40%;
+  }
+  .all-of-my-creations .my-creation .flex-container .left-box img {
+    width: 100%;
+    margin-bottom: 0;
+  }
+  .all-of-my-creations .my-creation .flex-container .right-box {
+    width: 56%;
+    position: relative;
+  }
+  .all-of-my-creations .my-creation .flex-container .right-box .creation-title {
+    font-size: calc(clamp(25px, 3rem, 3rem) * 0.9);
+  }
+  .all-of-my-creations .my-creation .flex-container .right-box .description {
+    font-size: clamp(20px, 2rem, 2rem);
+    line-height: 1.8;
+  }
+  .all-of-my-creations .my-creation .flex-container .right-box .language {
+    font-size: calc(clamp(20px, 2rem, 2rem) * 0.7);
+  }
+  .all-of-my-creations .my-creation .flex-container .right-box .creation-btn-wrapper {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+  }
+  .all-of-my-creations .my-creation .flex-container .right-box .creation-btn-wrapper button {
+    font-size: clamp(16px, 1.6rem, 1.6rem);
+  }
+}/*# sourceMappingURL=style.css.map */
